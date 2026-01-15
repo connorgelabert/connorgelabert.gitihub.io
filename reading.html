@@ -6,22 +6,35 @@
   <title>Reading | Connor Gelabert</title>
 
   <style>
+    :root{
+      --bg: #0f172a;
+      --panel: #111827;
+      --text: #e5e7eb;
+      --muted: #cbd5f5;
+      --muted2: #9ca3af;
+      --border: rgba(255,255,255,0.08);
+      --shadow: rgba(0,0,0,0.35);
+      --accent: rgba(96,165,250,0.9);
+      --accentBg: rgba(30,41,59,0.7);
+      --navBg: rgba(2, 6, 23, 0.8);
+    }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    /* ================= NAV ================= */
+    /* Top nav */
     .nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(2, 6, 23, 0.85);
+      background: var(--navBg);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid var(--border);
       z-index: 1000;
     }
 
@@ -32,53 +45,49 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 16px;
     }
 
     .brand {
-      color: #e5e7eb;
+      color: var(--text);
       text-decoration: none;
       font-weight: 700;
+      letter-spacing: -0.01em;
       white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 12px;
       align-items: center;
-      flex-wrap: nowrap;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
-      color: #cbd5f5;
+      color: var(--muted);
       text-decoration: none;
       font-weight: 500;
-      padding: 8px 14px;
+      padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid transparent;
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
       border-color: rgba(96,165,250,0.6);
       background: rgba(30,41,59,0.5);
-      color: #e5e7eb;
+      color: var(--text);
     }
 
     .nav-links a.active {
-      border-color: rgba(96,165,250,0.9);
-      background: rgba(30,41,59,0.7);
-      color: #e5e7eb;
+      border-color: var(--accent);
+      background: var(--accentBg);
+      color: var(--text);
     }
 
-    /* Hide name on small screens */
-    @media (max-width: 640px) {
-      .brand {
-        display: none;
-      }
-    }
-
-    /* ================= CONTENT ================= */
+    /* Page layout */
     .container {
       max-width: 900px;
       margin: 120px auto;
@@ -86,57 +95,75 @@
     }
 
     h1 {
-      font-size: 2.4rem;
-      margin-bottom: 20px;
+      font-size: 2.6rem;
+      margin: 0 0 10px;
       letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 0 0 22px;
+      line-height: 1.6;
     }
 
     .reading-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
     }
 
     .book {
-      background: #111827;
+      background: var(--panel);
       border-radius: 16px;
       padding: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px var(--shadow);
     }
 
     .book img {
       width: 100%;
-      height: 360px;
-      object-fit: cover;
+      height: auto;
       border-radius: 12px;
+      display: block;
       margin-bottom: 14px;
-      background: #020617;
+      border: 1px solid rgba(255,255,255,0.10);
     }
 
     .book-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 4px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0 0 4px;
     }
 
     .book-author {
-      color: #9ca3af;
+      color: var(--muted2);
       font-size: 0.95rem;
-      margin-bottom: 10px;
+      margin: 0 0 12px;
     }
 
     .book p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #d1d5db;
       margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: #d1d5db;
+    }
+
+    /* Small screen tweaks so tabs never bunch weirdly */
+    @media (max-width: 520px) {
+      .nav-inner {
+        align-items: flex-start;
+      }
+      .nav-links {
+        gap: 10px;
+      }
+      .container {
+        margin: 110px auto;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
       <a class="brand" href="index.html">Connor Gelabert</a>
@@ -149,23 +176,32 @@
     </div>
   </nav>
 
-  <!-- CONTENT -->
   <div class="container">
     <h1>Reading</h1>
+    <div class="subtitle">Books I’m reading, plus one takeaway from each.</div>
 
     <div class="reading-list">
 
-      <!-- ===== BOOK CARD (copy/paste this block) ===== -->
+      <!-- BOOK CARD (copy/paste this block to add a new book) -->
       <div class="book">
-        <img src="book-placeholder.jpg" alt="Book cover">
-        <div class="book-title">Book Title Here</div>
-        <div class="book-author">Author Name</div>
+        <img src="IMG_6311.png" alt="Make Your Bed book cover">
+        <div class="book-title">Make Your Bed</div>
+        <div class="book-author">William H. McRaven</div>
         <p>
-          One short takeaway from the book — what stood out, how it changed your
-          thinking, or how it applies to work or life.
+          I’ve always liked things clean and orderly, and I probably get that from my mom. But after reading Make Your Bed,
+          I gained a deeper appreciation for doing the small things right and for how much they actually matter.
+          <br><br>
+          What seems like a mundane task to most people, making your bed in the morning, often is not a priority. I get it.
+          You set your alarm for 7:00, hit snooze a few times, and suddenly you are rushing just to shower and brush your teeth,
+          let alone make the bed. But Admiral McCraven reframes that simple habit in a powerful way by emphasizing the importance
+          of accomplishing the first task of the day.
+          <br><br>
+          That small win creates a sense of momentum. You carry that feeling of accomplishment forward and build on it throughout
+          the day. And even if the day does not go as planned, you still come home to a made bed, a small but meaningful reminder
+          that you did something right. It is a simple comfort, and one I have come to value even more.
         </p>
       </div>
-      <!-- ===== END BOOK CARD ===== -->
+      <!-- END BOOK CARD -->
 
     </div>
   </div>
