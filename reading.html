@@ -13,13 +13,13 @@
       color: #e5e7eb;
     }
 
-    /* Nav */
+    /* ================= NAV ================= */
     .nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(2, 6, 23, 0.8);
+      background: rgba(2, 6, 23, 0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       z-index: 1000;
@@ -30,30 +30,55 @@
       margin: 0 auto;
       padding: 14px 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
     .brand {
       color: #e5e7eb;
       text-decoration: none;
       font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: nowrap;
     }
 
     .nav-links a {
       color: #cbd5f5;
       text-decoration: none;
-      margin-left: 14px;
-      padding: 8px 12px;
+      font-weight: 500;
+      padding: 8px 14px;
       border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(96,165,250,0.6);
+      background: rgba(30,41,59,0.5);
+      color: #e5e7eb;
     }
 
     .nav-links a.active {
-      border: 1px solid rgba(96,165,250,0.9);
+      border-color: rgba(96,165,250,0.9);
       background: rgba(30,41,59,0.7);
       color: #e5e7eb;
     }
 
+    /* Hide name on small screens */
+    @media (max-width: 640px) {
+      .brand {
+        display: none;
+      }
+    }
+
+    /* ================= CONTENT ================= */
     .container {
       max-width: 900px;
       margin: 120px auto;
@@ -63,6 +88,7 @@
     h1 {
       font-size: 2.4rem;
       margin-bottom: 20px;
+      letter-spacing: -0.02em;
     }
 
     .reading-list {
@@ -81,8 +107,11 @@
 
     .book img {
       width: 100%;
+      height: 360px;
+      object-fit: cover;
       border-radius: 12px;
       margin-bottom: 14px;
+      background: #020617;
     }
 
     .book-title {
@@ -107,6 +136,7 @@
 </head>
 
 <body>
+  <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
       <a class="brand" href="index.html">Connor Gelabert</a>
@@ -119,12 +149,13 @@
     </div>
   </nav>
 
+  <!-- CONTENT -->
   <div class="container">
     <h1>Reading</h1>
 
     <div class="reading-list">
 
-      <!-- BOOK CARD -->
+      <!-- ===== BOOK CARD (copy/paste this block) ===== -->
       <div class="book">
         <img src="book-placeholder.jpg" alt="Book cover">
         <div class="book-title">Book Title Here</div>
@@ -134,7 +165,7 @@
           thinking, or how it applies to work or life.
         </p>
       </div>
-      <!-- END BOOK CARD -->
+      <!-- ===== END BOOK CARD ===== -->
 
     </div>
   </div>
