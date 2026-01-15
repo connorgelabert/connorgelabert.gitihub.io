@@ -32,18 +32,21 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .brand {
       color: #e5e7eb;
       text-decoration: none;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
@@ -72,35 +75,81 @@
     .container {
       max-width: 1100px;
       margin: 120px auto;
-      padding: 0 24px;
+      padding: 0 24px 60px;
     }
 
     h1 {
       font-size: 2.4rem;
-      margin-bottom: 30px;
+      margin: 0 0 26px;
       letter-spacing: -0.02em;
+    }
+
+    .city-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
     }
 
     .city-title {
       font-size: 1.6rem;
-      margin-bottom: 20px;
+      margin: 0;
       letter-spacing: -0.01em;
     }
 
-    /* GALLERY GRID */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 16px;
+    .hint {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      margin: 0;
+      white-space: nowrap;
     }
 
-    .gallery-grid img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 14px;
+    /* HORIZONTAL SCROLL GALLERY */
+    .scroll-row {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(17, 24, 39, 0.55);
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .scroll-row::-webkit-scrollbar {
+      height: 10px;
+    }
+    .scroll-row::-webkit-scrollbar-thumb {
+      background: rgba(96,165,250,0.35);
+      border-radius: 999px;
+    }
+    .scroll-row::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+    }
+
+    .photo {
+      flex: 0 0 auto;
+      width: 280px;
+      height: 360px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+      scroll-snap-align: start;
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* Make photos a bit wider on larger screens */
+    @media (min-width: 900px) {
+      .photo {
+        width: 340px;
+        height: 420px;
+      }
     }
   </style>
 </head>
@@ -121,16 +170,19 @@
   <div class="container">
     <h1>Gallery</h1>
 
-    <div class="city-title">Dublin, Ireland</div>
+    <div class="city-header">
+      <h2 class="city-title">Dublin, Ireland</h2>
+      <p class="hint">Swipe to scroll</p>
+    </div>
 
-    <div class="gallery-grid">
-      <img src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo">
-      <img src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo">
-      <img src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo">
-      <img src="images/gallery/dublin/IMG_4310.jpeg" alt="Dublin photo">
-      <img src="images/gallery/dublin/IMG_4315.jpeg" alt="Dublin photo">
-      <img src="images/gallery/dublin/IMG_4336.jpeg" alt="Dublin photo">
-      <img src="images/gallery/dublin/IMG_4391.jpeg" alt="Dublin photo">
+    <div class="scroll-row">
+      <img class="photo" src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo">
+      <img class="photo" src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo">
+      <img class="photo" src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo">
+      <img class="photo" src="images/gallery/dublin/IMG_4310.jpeg" alt="Dublin photo">
+      <img class="photo" src="images/gallery/dublin/IMG_4315.jpeg" alt="Dublin photo">
+      <img class="photo" src="images/gallery/dublin/IMG_4336.jpeg" alt="Dublin photo">
+      <img class="photo" src="images/gallery/dublin/IMG_4391.jpeg" alt="Dublin photo">
     </div>
   </div>
 </body>
