@@ -13,10 +13,12 @@
       color: #e5e7eb;
     }
 
-    /* Top nav */
+    /* NAV */
     .nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       background: rgba(2, 6, 23, 0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -30,104 +32,84 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
     }
 
     .brand {
       color: #e5e7eb;
       text-decoration: none;
       font-weight: 700;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .nav-links a {
       color: #cbd5f5;
       text-decoration: none;
-      font-weight: 500;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid transparent;
       transition: all 0.2s ease;
     }
 
-    .nav-links a:hover {
-      border-color: rgba(96,165,250,0.6);
-      background: rgba(30,41,59,0.5);
-      color: #e5e7eb;
-    }
-
     .nav-links a.active {
-      border-color: rgba(96,165,250,0.9);
+      border: 1px solid rgba(96,165,250,0.9);
       background: rgba(30,41,59,0.7);
       color: #e5e7eb;
     }
 
+    /* PAGE */
     .container {
-      max-width: 720px;
-      margin: 120px auto 100px;
+      max-width: 900px;
+      margin: 120px auto;
       padding: 0 24px;
     }
 
     h1 {
       font-size: 2.4rem;
-      margin: 0 0 10px;
-      letter-spacing: -0.02em;
+      margin-bottom: 10px;
     }
 
     .subtitle {
       color: #cbd5f5;
-      margin: 0 0 26px;
+      margin-bottom: 28px;
       line-height: 1.6;
     }
 
+    /* BLOG LIST */
     .post-card {
       display: block;
+      background: #111827;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 16px;
       text-decoration: none;
-      background: rgba(17,24,39,0.75);
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.28);
-      border-radius: 18px;
-      padding: 18px 18px 16px;
-      margin-bottom: 14px;
-      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
     .post-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(96,165,250,0.5);
-      background: rgba(17,24,39,0.9);
+      border-color: rgba(96,165,250,0.6);
     }
 
     .post-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-size: 1.3rem;
+      font-weight: 600;
       color: #e5e7eb;
-      margin: 0 0 6px;
+      margin-bottom: 6px;
     }
 
     .post-meta {
-      color: #94a3b8;
+      color: #9ca3af;
       font-size: 0.95rem;
-      margin: 0 0 10px;
-    }
-
-    .post-excerpt {
-      color: #d1d5db;
-      line-height: 1.7;
-      margin: 0;
     }
 
     @media (max-width: 520px) {
-      .brand { display: none; }
+      .brand {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -145,19 +127,20 @@
     </div>
   </nav>
 
-  <main class="container">
+  <div class="container">
     <h1>Blog</h1>
-    <p class="subtitle">Short notes on procurement, career growth, and building over time.</p>
+    <p class="subtitle">
+      Short notes on procurement, career growth, and building over time.
+    </p>
 
-    <!-- Post 1 -->
+    <!-- BLOG POST -->
     <a class="post-card" href="blog-consistency.html">
       <div class="post-title">The Key to New Year’s: Consistency</div>
       <div class="post-meta">January 2026</div>
-      <p class="post-excerpt">
-        For my first blog, I want to talk about some of my New Year’s resolutions, especially given that it’s the beginning of 2026.
-      </p>
     </a>
 
-  </main>
+    <!-- FUTURE POSTS GO HERE -->
+
+  </div>
 </body>
 </html>
