@@ -17,7 +17,7 @@
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(2,6,23,0.85);
+      background: rgba(2, 6, 23, 0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       z-index: 1000;
@@ -28,71 +28,106 @@
       margin: 0 auto;
       padding: 14px 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
     .brand {
       color: #e5e7eb;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
       color: #cbd5f5;
       text-decoration: none;
+      font-weight: 500;
       padding: 8px 12px;
       border-radius: 999px;
+      border: 1px solid transparent;
       transition: all 0.2s ease;
     }
 
-    .nav-links a.active {
-      border: 1px solid rgba(96,165,250,0.8);
-      background: rgba(30,41,59,0.6);
+    .nav-links a:hover {
+      border-color: rgba(96,165,250,0.6);
+      background: rgba(30,41,59,0.5);
       color: #e5e7eb;
     }
 
-    /* Page container */
+    .nav-links a.active {
+      border-color: rgba(96,165,250,0.9);
+      background: rgba(30,41,59,0.7);
+      color: #e5e7eb;
+    }
+
     .container {
       max-width: 720px;
       margin: 120px auto 100px;
       padding: 0 24px;
     }
 
-    /* Blog post */
-    .post-title {
-      font-size: 2.2rem;
-      font-weight: 700;
+    h1 {
+      font-size: 2.4rem;
+      margin: 0 0 10px;
       letter-spacing: -0.02em;
-      margin-bottom: 6px;
     }
 
-    .post-date {
-      font-size: 0.95rem;
+    .subtitle {
+      color: #cbd5f5;
+      margin: 0 0 26px;
+      line-height: 1.6;
+    }
+
+    .post-card {
+      display: block;
+      text-decoration: none;
+      background: rgba(17,24,39,0.75);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      margin-bottom: 14px;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(96,165,250,0.5);
+      background: rgba(17,24,39,0.9);
+    }
+
+    .post-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #e5e7eb;
+      margin: 0 0 6px;
+    }
+
+    .post-meta {
       color: #94a3b8;
-      margin-bottom: 28px;
+      font-size: 0.95rem;
+      margin: 0 0 10px;
     }
 
-    .post-content {
-      font-size: 1.05rem;
-      line-height: 1.75;
+    .post-excerpt {
       color: #d1d5db;
+      line-height: 1.7;
+      margin: 0;
     }
 
-    .post-content p {
-      margin-bottom: 22px;
-    }
-
-    /* Mobile */
     @media (max-width: 520px) {
-      .post-title {
-        font-size: 1.9rem;
-      }
+      .brand { display: none; }
     }
   </style>
 </head>
@@ -111,60 +146,18 @@
   </nav>
 
   <main class="container">
-    <article>
-      <h1 class="post-title">The Key to New Year’s: Consistency</h1>
-      <div class="post-date">January 2026</div>
+    <h1>Blog</h1>
+    <p class="subtitle">Short notes on procurement, career growth, and building over time.</p>
 
-      <div class="post-content">
-        <p>
-          For my first blog, I want to talk about some of my New Year’s resolutions,
-          especially given that it’s the beginning of 2026.
-        </p>
+    <!-- Post 1 -->
+    <a class="post-card" href="blog-consistency.html">
+      <div class="post-title">The Key to New Year’s: Consistency</div>
+      <div class="post-meta">January 2026</div>
+      <p class="post-excerpt">
+        For my first blog, I want to talk about some of my New Year’s resolutions, especially given that it’s the beginning of 2026.
+      </p>
+    </a>
 
-        <p>
-          I’ve fallen victim many times, as I’m sure many of you have, to coming up
-          with ambitious goals for the new year and then falling short within just
-          a few weeks. Why does this happen to everyone? That initial wave of
-          excitement and determination suddenly seems to fade away by the third or
-          fourth week.
-        </p>
-
-        <p>
-          This year, one of my main goals was to be more consistent in the gym. So
-          far, I’d say I’m off to a great start. I’ve had to make some adjustments
-          with my new job, since I start work at 7:00 a.m. every morning.
-        </p>
-
-        <p>
-          I wake up at 4:45 a.m. and try to get to the gym around 5:00. It’s a
-          sacrifice I’m more than happy to make, especially considering that the
-          gym after work is a madhouse. In the mornings, it’s quiet, less busy, and
-          you see the same 10 to 15 people every time.
-        </p>
-
-        <p>
-          Working out, for me, is a way to release stress, and there’s no better
-          feeling than leaving the gym after a great workout. It’s the perfect way
-          for me to start my day. That sense of accomplishment is something I can
-          build on as the day goes on, a lesson I picked up from reading
-          <em>Make Your Bed</em>.
-        </p>
-
-        <p>
-          I think, like most things, the key is consistency. You won’t see results
-          after a week, or even after a month, but when you finally start to notice
-          some differences, it makes you want to work even harder. Maybe that’s why
-          people don’t last more than a few weeks with their goals. They aren’t
-          willing to stay consistent, and they’re impatient.
-        </p>
-
-        <p>
-          I like to think of someone cutting down a tree with a saw. A few strokes
-          won’t make much of an impact. Not even fifty strokes. But if you stay
-          consistent, you will eventually achieve that goal.
-        </p>
-      </div>
-    </article>
   </main>
 </body>
 </html>
