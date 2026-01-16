@@ -107,9 +107,7 @@
       -webkit-overflow-scrolling:touch;
     }
 
-    .scroller::-webkit-scrollbar{
-      height:10px;
-    }
+    .scroller::-webkit-scrollbar{ height:10px; }
     .scroller::-webkit-scrollbar-thumb{
       background:rgba(255,255,255,0.12);
       border-radius:999px;
@@ -123,31 +121,33 @@
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.10);
       scroll-snap-align:start;
-      background:#0b1224; /* helps when images are contained */
+      background:#0b1224;
     }
 
     .photo img{
       width:100%;
       height:100%;
-      object-fit:cover;          /* desktop look */
+      object-fit:cover;         /* consistent fill */
+      object-position:center;   /* centers crop */
       display:block;
       image-orientation: from-image;
     }
 
-    /* Mobile: show the whole photo with no cropping/zoom */
+    /* Mobile: consistent card shape + stops "zoomed in" randomness */
     @media (max-width: 520px){
+      .brand{ display:none; }  /* keeps nav from bunching */
+      h1{ font-size:2.1rem; }
+      .city-title{ font-size:1.6rem; }
+
       .photo{
         width:260px;
-        height:185px;
-      }
-
-      .brand{
-        display:none; /* keeps nav from bunching on phones */
+        height:auto;
+        aspect-ratio: 4 / 5;   /* consistent frame on mobile */
       }
 
       .photo img{
-        object-fit:contain;      /* key: no zoom/crop on mobile */
-        background:#0b1224;
+        object-fit: cover;
+        object-position: center;
       }
     }
   </style>
