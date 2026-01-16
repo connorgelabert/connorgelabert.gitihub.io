@@ -76,32 +76,29 @@
       padding:0 24px;
     }
 
-    .hero{
-      display:grid;
-      grid-template-columns: 320px 1fr;
-      gap:32px;
-      align-items:start;
-    }
-
-    .headshot{
-      width:100%;
-      max-width:340px;
+    /* Landing layout (same vibe as before) */
+    .headshot-wrap{
+      width:320px;
+      height:320px;
       border-radius:22px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.10);
       box-shadow:0 20px 60px rgba(0,0,0,0.45);
       background:#0b1224;
+      margin-bottom:22px;
     }
 
-    .headshot img{
+    .headshot-wrap img{
       width:100%;
-      height:auto;
+      height:100%;
       display:block;
       object-fit:cover;
+      object-position:center;
+      image-orientation: from-image;
     }
 
     h1{
-      font-size:4rem;
+      font-size:4.2rem;
       margin:0 0 12px;
       line-height:0.95;
       letter-spacing:-0.03em;
@@ -110,65 +107,20 @@
     .intro{
       color:#cbd5f5;
       font-size:1.08rem;
-      line-height:1.8;
+      line-height:1.85;
       margin:0;
-      max-width:56ch;
+      max-width:60ch;
     }
 
-    /* Point 2: soft divider */
-    .divider{
-      height:1px;
-      margin:36px 0 32px;
-      background:linear-gradient(
-        90deg,
-        rgba(255,255,255,0),
-        rgba(255,255,255,0.15),
-        rgba(255,255,255,0)
-      );
-    }
-
-    /* Point 6: scroll cue */
-    .scroll-cue{
-      margin-top:18px;
-      display:flex;
-      justify-content:center;
-      opacity:0.55;
-    }
-
-    .scroll-cue span{
-      font-size:1.5rem;
-      animation: float 2.2s ease-in-out infinite;
-      user-select:none;
-    }
-
-    @keyframes float; {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-      100% { transform: translateY(0); }
-    }
-
-    /* Fallback if iOS is picky about @keyframes semicolon (safe duplicate) */
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-      100% { transform: translateY(0); }
-    }
-
-    /* Mobile */
-    @media (max-width: 780px){
-      .hero{
-        grid-template-columns: 1fr;
-        gap:22px;
+    @media (max-width: 520px){
+      .brand{ display:none; } /* keep nav from bunching */
+      .container{ margin:100px auto 80px; }
+      .headshot-wrap{
+        width:100%;
+        max-width:360px;
+        height:360px;
       }
-      h1{
-        font-size:3.2rem;
-      }
-      .brand{
-        display:none; /* keeps nav from bunching */
-      }
-      .headshot{
-        max-width:420px;
-      }
+      h1{ font-size:3.6rem; }
     }
   </style>
 </head>
@@ -187,35 +139,21 @@
   </nav>
 
   <div class="container">
-
-    <div class="hero">
-      <div class="headshot">
-        <!-- Update this filename to your actual headshot file -->
-        <img src="IMG_3078.jpeg" alt="Connor Gelabert headshot" />
-      </div>
-
-      <div>
-        <h1>Connor<br/>Gelabert</h1>
-
-        <p class="intro">
-          I’m Connor Gelabert, a supply chain and procurement professional with experience across both direct and indirect sourcing.
-          I specialize in buying, contract negotiation, and building strong, results-driven supplier relationships.
-          <br/><br/>
-          In my current role as a Senior Procurement Associate in the mission-critical communications sector at L3Harris, I manage the procurement
-          of audio and user interface components that are integrated directly into products supporting American and allied warfighters.
-          My work focuses on reliability, cost efficiency, and supplier performance in high-impact, operationally critical environments.
-        </p>
-
-        <!-- Point 2 -->
-        <div class="divider"></div>
-
-        <!-- Point 6 -->
-        <div class="scroll-cue">
-          <span>↓</span>
-        </div>
-      </div>
+    <!-- Update filename if needed -->
+    <div class="headshot-wrap">
+      <img src="IMG_3078.jpeg" alt="Connor Gelabert headshot">
     </div>
 
+    <h1>Connor<br>Gelabert</h1>
+
+    <p class="intro">
+      I’m Connor Gelabert, a supply chain and procurement professional with experience across both direct and indirect sourcing.
+      I specialize in buying, contract negotiation, and building strong, results-driven supplier relationships.
+      <br><br>
+      In my current role as a Senior Procurement Associate in the mission-critical communications sector at L3Harris, I manage the procurement
+      of audio and user interface components that are integrated directly into products supporting American and allied warfighters.
+      My work focuses on reliability, cost efficiency, and supplier performance in high-impact, operationally critical environments.
+    </p>
   </div>
 </body>
 </html>
