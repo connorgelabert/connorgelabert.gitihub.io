@@ -6,150 +6,125 @@
   <title>Gallery | Connor Gelabert</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:#0f172a;
+      color:#e5e7eb;
     }
 
-    /* NAV */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(2, 6, 23, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      z-index: 1000;
+    /* Top nav */
+    .nav{
+      position:fixed;
+      top:0; left:0; right:0;
+      background:rgba(2,6,23,0.8);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      z-index:1000;
+    }
+    .nav-inner{
+      max-width:900px;
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      color:#e5e7eb;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:-0.01em;
+      white-space:nowrap;
+    }
+    .nav-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-links a{
+      color:#cbd5f5;
+      text-decoration:none;
+      font-weight:500;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:all 0.2s ease;
+    }
+    .nav-links a:hover{
+      border-color:rgba(96,165,250,0.6);
+      background:rgba(30,41,59,0.5);
+      color:#e5e7eb;
+    }
+    .nav-links a.active{
+      border-color:rgba(96,165,250,0.9);
+      background:rgba(30,41,59,0.7);
+      color:#e5e7eb;
     }
 
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+    .container{
+      max-width:900px;
+      margin:120px auto;
+      padding:0 24px 70px;
+    }
+    h1{
+      font-size:2.4rem;
+      margin:0 0 18px;
+      letter-spacing:-0.02em;
     }
 
-    .brand {
-      color: #e5e7eb;
-      text-decoration: none;
-      font-weight: 700;
-      white-space: nowrap;
+    .city{
+      margin-top:28px;
+    }
+    .city-title{
+      font-size:1.5rem;
+      margin:0 0 10px;
+      letter-spacing:-0.01em;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+    /* Horizontal scroll row */
+    .scroll-row{
+      display:flex;
+      gap:14px;
+      overflow-x:auto;
+      padding:14px;
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.35);
+
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .scroll-row::-webkit-scrollbar{
+      height:10px;
+    }
+    .scroll-row::-webkit-scrollbar-thumb{
+      background:rgba(148,163,184,0.35);
+      border-radius:999px;
     }
 
-    .nav-links a {
-      color: #cbd5f5;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
-    }
+    /* FIX: Respect photo orientation + consistent tiles */
+    .photo{
+      width:360px;
+      height:260px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.10);
+      flex:0 0 auto;
+      object-fit:cover;
+      scroll-snap-align:start;
 
-    .nav-links a:hover {
-      border-color: rgba(96,165,250,0.6);
-      background: rgba(30,41,59,0.5);
-      color: #e5e7eb;
-    }
-
-    .nav-links a.active {
-      border-color: rgba(96,165,250,0.9);
-      background: rgba(30,41,59,0.7);
-      color: #e5e7eb;
-    }
-
-    /* PAGE */
-    .container {
-      max-width: 1100px;
-      margin: 120px auto;
-      padding: 0 24px 60px;
-    }
-
-    h1 {
-      font-size: 2.4rem;
-      margin: 0 0 26px;
-      letter-spacing: -0.02em;
-    }
-
-    .city-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 12px;
-    }
-
-    .city-title {
-      font-size: 1.6rem;
-      margin: 0;
-      letter-spacing: -0.01em;
-    }
-
-    .hint {
-      color: #9ca3af;
-      font-size: 0.95rem;
-      margin: 0;
-      white-space: nowrap;
-    }
-
-    /* HORIZONTAL SCROLL GALLERY */
-    .scroll-row {
-      display: flex;
-      gap: 14px;
-      overflow-x: auto;
-      padding: 14px;
-      border-radius: 18px;
-      background: rgba(17, 24, 39, 0.55);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .scroll-row::-webkit-scrollbar {
-      height: 10px;
-    }
-    .scroll-row::-webkit-scrollbar-thumb {
-      background: rgba(96,165,250,0.35);
-      border-radius: 999px;
-    }
-    .scroll-row::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.06);
-      border-radius: 999px;
-    }
-
-    .photo {
-      flex: 0 0 auto;
-      width: 280px;
-      height: 360px;
-      border-radius: 16px;
-      object-fit: cover;
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
-      scroll-snap-align: start;
+      image-orientation: from-image;
+      display:block;
       background: rgba(255,255,255,0.04);
     }
 
-    /* Make photos a bit wider on larger screens */
-    @media (min-width: 900px) {
-      .photo {
-        width: 340px;
-        height: 420px;
-      }
+    /* Mobile tweaks */
+    @media (max-width: 520px){
+      .photo{ width:300px; height:220px; }
+      .brand{ display:none; }
     }
   </style>
 </head>
@@ -170,20 +145,33 @@
   <div class="container">
     <h1>Gallery</h1>
 
-    <div class="city-header">
+    <!-- DUBLIN -->
+    <section class="city">
       <h2 class="city-title">Dublin, Ireland</h2>
-      <p class="hint">Swipe to scroll</p>
-    </div>
+      <div class="scroll-row">
+        <img class="photo" src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo">
+        <img class="photo" src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo">
+        <img class="photo" src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo">
+        <img class="photo" src="images/gallery/dublin/IMG_4310.jpeg" alt="Dublin photo">
+        <img class="photo" src="images/gallery/dublin/IMG_4315.jpeg" alt="Dublin photo">
+        <img class="photo" src="images/gallery/dublin/IMG_4336.jpeg" alt="Dublin photo">
+        <img class="photo" src="images/gallery/dublin/IMG_4391.jpeg" alt="Dublin photo">
+      </div>
+    </section>
 
-    <div class="scroll-row">
-      <img class="photo" src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo">
-      <img class="photo" src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo">
-      <img class="photo" src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo">
-      <img class="photo" src="images/gallery/dublin/IMG_4310.jpeg" alt="Dublin photo">
-      <img class="photo" src="images/gallery/dublin/IMG_4315.jpeg" alt="Dublin photo">
-      <img class="photo" src="images/gallery/dublin/IMG_4336.jpeg" alt="Dublin photo">
-      <img class="photo" src="images/gallery/dublin/IMG_4391.jpeg" alt="Dublin photo">
-    </div>
+    <!-- EDINBURGH -->
+    <section class="city">
+      <h2 class="city-title">Edinburgh, Scotland</h2>
+      <div class="scroll-row">
+        <!-- Replace these filenames with EXACT names from images/gallery/edinburgh/ -->
+        <img class="photo" src="images/gallery/edinburgh/IMG_0001.jpeg" alt="Edinburgh photo">
+        <img class="photo" src="images/gallery/edinburgh/IMG_0002.jpeg" alt="Edinburgh photo">
+        <img class="photo" src="images/gallery/edinburgh/IMG_0003.jpeg" alt="Edinburgh photo">
+        <img class="photo" src="images/gallery/edinburgh/IMG_0004.jpeg" alt="Edinburgh photo">
+        <img class="photo" src="images/gallery/edinburgh/IMG_0005.jpeg" alt="Edinburgh photo">
+      </div>
+    </section>
+
   </div>
 </body>
 </html>
