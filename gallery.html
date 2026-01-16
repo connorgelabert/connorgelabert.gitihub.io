@@ -6,127 +6,143 @@
   <title>Gallery | Connor Gelabert</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:#0f172a;
+      color:#e5e7eb;
     }
 
-    /* NAV */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(2, 6, 23, 0.8);
+    /* Top nav */
+    .nav{
+      position:fixed;
+      top:0; left:0; right:0;
+      background:rgba(2,6,23,0.8);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      z-index: 1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      z-index:1000;
     }
 
-    .nav-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .nav-inner{
+      max-width:900px;
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
     }
 
-    .brand {
-      color: #e5e7eb;
-      text-decoration: none;
-      font-weight: 700;
+    .brand{
+      color:#e5e7eb;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:-0.01em;
+      white-space:nowrap;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .nav-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
-    .nav-links a {
-      color: #cbd5f5;
-      text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid transparent;
+    .nav-links a{
+      color:#cbd5f5;
+      text-decoration:none;
+      font-weight:500;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:all 0.2s ease;
     }
 
-    .nav-links a.active {
-      border-color: rgba(96,165,250,0.9);
-      background: rgba(30,41,59,0.7);
-      color: #e5e7eb;
+    .nav-links a:hover{
+      border-color:rgba(96,165,250,0.6);
+      background:rgba(30,41,59,0.5);
+      color:#e5e7eb;
     }
 
-    /* PAGE */
-    .container {
-      max-width: 900px;
-      margin: 110px auto 90px;
-      padding: 0 24px;
+    .nav-links a.active{
+      border-color:rgba(96,165,250,0.9);
+      background:rgba(30,41,59,0.7);
+      color:#e5e7eb;
     }
 
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 30px;
+    .container{
+      max-width:900px;
+      margin:110px auto 90px;
+      padding:0 24px;
     }
 
-    .section {
-      margin-bottom: 48px;
+    h1{
+      font-size:2.4rem;
+      margin:0 0 22px;
+      letter-spacing:-0.02em;
     }
 
-    .city-title {
-      font-size: 1.8rem;
-      margin-bottom: 16px;
+    .section{
+      margin:28px 0 46px;
     }
 
-    /* SCROLLER */
-    .scroller {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      padding: 16px;
-      background: rgba(17,24,39,0.7);
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
+    .city-title{
+      font-size:1.8rem;
+      margin:0 0 14px;
+      letter-spacing:-0.02em;
     }
 
-    .photo {
-      flex: 0 0 auto;
-      width: 300px;
-      height: 200px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #0b1224;
-      scroll-snap-align: start;
+    /* Horizontal scroller */
+    .scroller{
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      padding:14px;
+      border-radius:18px;
+      background:rgba(17,24,39,0.7);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 20px 50px rgba(0,0,0,0.28);
+
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
     }
 
-    .photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      background: #0b1224;
-      display: block;
+    .scroller::-webkit-scrollbar{ height:10px; }
+    .scroller::-webkit-scrollbar-thumb{
+      background:rgba(255,255,255,0.12);
+      border-radius:999px;
     }
 
-    /* MOBILE */
-    @media (max-width: 520px) {
-      .photo {
-        width: 260px;
-        height: 180px;
-      }
-      .brand {
-        display: none;
-      }
+    .photo{
+      flex:0 0 auto;
+      width:320px;
+      height:220px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.10);
+      scroll-snap-align:start;
+      background:#0b1224;
+    }
+
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;     /* ✅ Consistent tiles again */
+      object-position:center;
+      display:block;
+      image-orientation: from-image;
+      transform: translateZ(0);
+    }
+
+    /* Smaller screens */
+    @media (max-width: 520px){
+      .photo{ width:260px; height:185px; }
+      .brand{ display:none; } /* keeps nav from bunching on phones */
     }
   </style>
 </head>
 
 <body>
-
   <nav class="nav">
     <div class="nav-inner">
       <a class="brand" href="index.html">Connor Gelabert</a>
@@ -142,55 +158,54 @@
   <div class="container">
     <h1>Gallery</h1>
 
-    <!-- DUBLIN -->
+    <!-- Dublin -->
     <div class="section">
       <h2 class="city-title">Dublin, Ireland</h2>
       <div class="scroller">
-        <div class="photo"><img src="images/gallery/dublin/IMG_0099.jpeg"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4272.jpeg"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4299.jpeg"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4310.jpeg"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4315.jpeg"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4336.jpeg"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4391.jpeg"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4310.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4315.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4336.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4391.jpeg" alt="Dublin photo"></div>
       </div>
     </div>
 
-    <!-- EDINBURGH -->
+    <!-- Edinburgh -->
     <div class="section">
       <h2 class="city-title">Edinburgh, Scotland</h2>
       <div class="scroller">
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4407.jpeg"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4446.jpeg"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4453.jpeg"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4474.jpeg"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4483.jpeg"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4514.jpeg"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4531.jpeg"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4572.jpeg"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4578.jpeg"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_8595.jpeg"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4407.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4446.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4453.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4474.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4483.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4514.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4531.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4572.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4578.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_8595.jpeg" alt="Edinburgh photo"></div>
       </div>
     </div>
 
-    <!-- LONDON -->
+    <!-- London -->
     <div class="section">
       <h2 class="city-title">London, England</h2>
       <div class="scroller">
-        <div class="photo"><img src="images/gallery/london/IMG_4591.jpeg"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4594.jpeg"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4608.jpeg"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4615.jpeg"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4622.jpeg"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4624.jpeg"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4625.jpeg"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4631.jpeg"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4640.jpeg"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4646.jpeg"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4591.jpeg" alt="London photo"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4594.jpeg" alt="London photo"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4608.jpeg" alt="London photo"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4615.jpeg" alt="London photo"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4622.jpeg" alt="London photo"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4624.jpeg" alt="London photo"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4625.jpeg" alt="London photo"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4631.jpeg" alt="London photo"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4640.jpeg" alt="London photo"></div>
+        <div class="photo"><img src="images/gallery/london/IMG_4646.jpeg" alt="London photo"></div>
       </div>
     </div>
 
   </div>
-
 </body>
 </html>
