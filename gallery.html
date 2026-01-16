@@ -18,10 +18,11 @@
       position:fixed;
       top:0; left:0; right:0;
       background:rgba(2,6,23,0.8);
-      backdrop-filter:blur(10px);
+      backdrop-filter: blur(10px);
       border-bottom:1px solid rgba(255,255,255,0.08);
       z-index:1000;
     }
+
     .nav-inner{
       max-width:900px;
       margin:0 auto;
@@ -31,6 +32,7 @@
       justify-content:space-between;
       gap:16px;
     }
+
     .brand{
       color:#e5e7eb;
       text-decoration:none;
@@ -38,12 +40,14 @@
       letter-spacing:-0.01em;
       white-space:nowrap;
     }
+
     .nav-links{
       display:flex;
       gap:14px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
+
     .nav-links a{
       color:#cbd5f5;
       text-decoration:none;
@@ -53,11 +57,13 @@
       border:1px solid transparent;
       transition:all 0.2s ease;
     }
+
     .nav-links a:hover{
       border-color:rgba(96,165,250,0.6);
       background:rgba(30,41,59,0.5);
       color:#e5e7eb;
     }
+
     .nav-links a.active{
       border-color:rgba(96,165,250,0.9);
       background:rgba(30,41,59,0.7);
@@ -66,65 +72,74 @@
 
     .container{
       max-width:900px;
-      margin:120px auto;
-      padding:0 24px 70px;
+      margin:110px auto 90px;
+      padding:0 24px;
     }
+
     h1{
       font-size:2.4rem;
-      margin:0 0 18px;
+      margin:0 0 22px;
       letter-spacing:-0.02em;
     }
 
-    .city{
-      margin-top:28px;
-    }
-    .city-title{
-      font-size:1.5rem;
-      margin:0 0 10px;
-      letter-spacing:-0.01em;
+    .section{
+      margin:28px 0 38px;
     }
 
-    /* Horizontal scroll row */
-    .scroll-row{
+    .city-title{
+      font-size:1.8rem;
+      margin:0 0 14px;
+      letter-spacing:-0.02em;
+    }
+
+    /* Horizontal scroller */
+    .scroller{
       display:flex;
-      gap:14px;
+      gap:16px;
       overflow-x:auto;
       padding:14px;
-      background:#111827;
+      border-radius:18px;
+      background:rgba(17,24,39,0.7);
       border:1px solid rgba(255,255,255,0.08);
-      border-radius:16px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.35);
+      box-shadow:0 20px 50px rgba(0,0,0,0.28);
 
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;
     }
-    .scroll-row::-webkit-scrollbar{
+
+    .scroller::-webkit-scrollbar{
       height:10px;
     }
-    .scroll-row::-webkit-scrollbar-thumb{
-      background:rgba(148,163,184,0.35);
+    .scroller::-webkit-scrollbar-thumb{
+      background:rgba(255,255,255,0.12);
       border-radius:999px;
     }
 
-    /* FIX: Respect photo orientation + consistent tiles */
     .photo{
-      width:360px;
-      height:260px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,0.10);
       flex:0 0 auto;
-      object-fit:cover;
+      width:320px;
+      height:220px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.10);
       scroll-snap-align:start;
-
-      image-orientation: from-image;
-      display:block;
-      background: rgba(255,255,255,0.04);
+      background:#0b1224;
     }
 
-    /* Mobile tweaks */
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+
+      /* Helps prevent odd scaling; rotation is handled by the file itself */
+      image-orientation: from-image;
+    }
+
+    /* Smaller screens */
     @media (max-width: 520px){
-      .photo{ width:300px; height:220px; }
-      .brand{ display:none; }
+      .photo{ width:260px; height:185px; }
+      .brand{ display:none; } /* keeps nav from bunching on phones */
     }
   </style>
 </head>
@@ -145,32 +160,36 @@
   <div class="container">
     <h1>Gallery</h1>
 
-    <!-- DUBLIN -->
-    <section class="city">
+    <!-- Dublin -->
+    <div class="section">
       <h2 class="city-title">Dublin, Ireland</h2>
-      <div class="scroll-row">
-        <img class="photo" src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo">
-        <img class="photo" src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo">
-        <img class="photo" src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo">
-        <img class="photo" src="images/gallery/dublin/IMG_4310.jpeg" alt="Dublin photo">
-        <img class="photo" src="images/gallery/dublin/IMG_4315.jpeg" alt="Dublin photo">
-        <img class="photo" src="images/gallery/dublin/IMG_4336.jpeg" alt="Dublin photo">
-        <img class="photo" src="images/gallery/dublin/IMG_4391.jpeg" alt="Dublin photo">
+      <div class="scroller">
+        <div class="photo"><img src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4310.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4315.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4336.jpeg" alt="Dublin photo"></div>
+        <div class="photo"><img src="images/gallery/dublin/IMG_4391.jpeg" alt="Dublin photo"></div>
       </div>
-    </section>
+    </div>
 
-    <!-- EDINBURGH -->
-    <section class="city">
+    <!-- Edinburgh -->
+    <div class="section">
       <h2 class="city-title">Edinburgh, Scotland</h2>
-      <div class="scroll-row">
-        <!-- Replace these filenames with EXACT names from images/gallery/edinburgh/ -->
-        <img class="photo" src="images/gallery/edinburgh/IMG_0001.jpeg" alt="Edinburgh photo">
-        <img class="photo" src="images/gallery/edinburgh/IMG_0002.jpeg" alt="Edinburgh photo">
-        <img class="photo" src="images/gallery/edinburgh/IMG_0003.jpeg" alt="Edinburgh photo">
-        <img class="photo" src="images/gallery/edinburgh/IMG_0004.jpeg" alt="Edinburgh photo">
-        <img class="photo" src="images/gallery/edinburgh/IMG_0005.jpeg" alt="Edinburgh photo">
+      <div class="scroller">
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4407.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4446.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4453.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4474.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4483.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4514.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4531.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4572.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_4578.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo"><img src="images/gallery/edinburgh/IMG_8595.jpeg" alt="Edinburgh photo"></div>
       </div>
-    </section>
+    </div>
 
   </div>
 </body>
