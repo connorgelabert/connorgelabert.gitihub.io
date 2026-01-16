@@ -102,7 +102,7 @@
     .scroller{
       display:flex;
       gap:16px;
-      align-items:center;              /* centers landscape cards next to portrait cards */
+      align-items:center; /* centers tall + wide cards nicely */
       overflow-x:auto;
       padding:14px;
       border-radius:var(--radius);
@@ -128,31 +128,26 @@
       border:1px solid rgba(255,255,255,0.10);
       background:#0b1224;
       scroll-snap-align:start;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;          /* centers the image inside the card */
       box-shadow:0 10px 25px rgba(0,0,0,0.18);
     }
 
-    /* Wide vs Tall card sizes (you can adjust these) */
+    /* Card sizes */
     .photo.wide{ width:320px; height:220px; }
     .photo.tall{ width:170px; height:260px; }
 
+    /* IMPORTANT: fill the card consistently */
     .photo img{
-      max-width:100%;
-      max-height:100%;
-      width:auto;
-      height:auto;
+      width:100%;
+      height:100%;
+      object-fit:cover;          /* makes everything “fit” the box */
+      object-position:center;    /* keeps subject centered */
       display:block;
-
-      /* try to respect iPhone rotation metadata when supported */
       image-orientation: from-image;
     }
 
     /* Mobile tuning */
     @media (max-width:520px){
-      .brand{ display:none; } /* prevents nav bunching on phones */
+      .brand{ display:none; } /* prevents nav bunching */
 
       .photo.wide{ width:300px; height:210px; }
       .photo.tall{ width:160px; height:255px; }
@@ -182,7 +177,6 @@
     <div class="section">
       <h2 class="city-title">Dublin, Ireland</h2>
       <div class="scroller">
-        <!-- Mark each image as wide or tall depending on orientation -->
         <div class="photo wide"><img src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo"></div>
         <div class="photo tall"><img src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo"></div>
         <div class="photo tall"><img src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo"></div>
