@@ -13,13 +13,11 @@
       color: #e5e7eb;
     }
 
-    /* Top nav */
+    /* Nav */
     .nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(2, 6, 23, 0.8);
+      top: 0; left: 0; right: 0;
+      background: rgba(2,6,23,0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       z-index: 1000;
@@ -30,72 +28,71 @@
       margin: 0 auto;
       padding: 14px 24px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      align-items: center;
     }
 
     .brand {
       color: #e5e7eb;
       text-decoration: none;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
+      font-weight: 600;
     }
 
     .nav-links {
       display: flex;
       gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .nav-links a {
       color: #cbd5f5;
       text-decoration: none;
-      font-weight: 500;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid transparent;
       transition: all 0.2s ease;
     }
 
-    .nav-links a:hover {
-      border-color: rgba(96,165,250,0.6);
-      background: rgba(30,41,59,0.5);
-      color: #e5e7eb;
-    }
-
     .nav-links a.active {
-      border-color: rgba(96,165,250,0.9);
-      background: rgba(30,41,59,0.7);
+      border: 1px solid rgba(96,165,250,0.8);
+      background: rgba(30,41,59,0.6);
       color: #e5e7eb;
     }
 
+    /* Page container */
     .container {
-      max-width: 900px;
-      margin: 120px auto;
+      max-width: 720px;
+      margin: 120px auto 100px;
       padding: 0 24px;
     }
 
-    h1 {
-      font-size: 2.4rem;
-      margin: 0 0 22px;
+    /* Blog post */
+    .post-title {
+      font-size: 2.2rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
+      margin-bottom: 6px;
     }
 
-    .post {
-      background: #111827;
-      border-radius: 16px;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-      margin-bottom: 16px;
+    .post-date {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin-bottom: 28px;
     }
 
-    .post h2 {
-      margin: 0;
-      font-size: 1.25rem;
+    .post-content {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #d1d5db;
+    }
+
+    .post-content p {
+      margin-bottom: 22px;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 520px) {
+      .post-title {
+        font-size: 1.9rem;
+      }
     }
   </style>
 </head>
@@ -113,12 +110,28 @@
     </div>
   </nav>
 
-  <div class="container">
-    <h1>Blog</h1>
+  <main class="container">
+    <article>
+      <h1 class="post-title">Your Blog Title Goes Here</h1>
+      <div class="post-date">January 16, 2026</div>
 
-    <div class="post">
-      <h2>First post coming soon</h2>
-    </div>
-  </div>
+      <div class="post-content">
+        <p>
+          This is where your blog content starts. Keep paragraphs short and
+          intentional. White space is your friend.
+        </p>
+
+        <p>
+          You can write naturally here. No pressure to sound polished or
+          “professional.” The design already does that work for you.
+        </p>
+
+        <p>
+          When you’re ready for another paragraph, just add another
+          &lt;p&gt; block.
+        </p>
+      </div>
+    </article>
+  </main>
 </body>
 </html>
