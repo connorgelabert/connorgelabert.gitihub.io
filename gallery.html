@@ -82,9 +82,7 @@
       letter-spacing:-0.02em;
     }
 
-    .section{
-      margin:28px 0 46px;
-    }
+    .section{ margin:28px 0 46px; }
 
     .city-title{
       font-size:1.8rem;
@@ -102,7 +100,6 @@
       background:rgba(17,24,39,0.7);
       border:1px solid rgba(255,255,255,0.08);
       box-shadow:0 20px 50px rgba(0,0,0,0.28);
-
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;
     }
@@ -113,13 +110,9 @@
       border-radius:999px;
     }
 
-    /* Photo tile */
+    /* Base card */
     .photo{
-      --bg: none;
-      position:relative;
       flex:0 0 auto;
-      width:320px;
-      height:220px;
       border-radius:16px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.10);
@@ -127,43 +120,25 @@
       background:#0b1224;
     }
 
-    /* Blurred background fill */
-    .photo::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image: var(--bg);
-      background-size: cover;
-      background-position: center;
-      filter: blur(18px);
-      transform: scale(1.15);
-      opacity: 0.55;
-    }
+    /* Desktop sizes */
+    .photo.landscape{ width:360px; height:240px; }
+    .photo.portrait{  width:240px; height:360px; }
 
-    /* Dark overlay to keep it clean */
-    .photo::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: rgba(11,18,36,0.35);
-    }
-
-    /* Actual image on top */
     .photo img{
-      position:relative;
-      z-index:1;
       width:100%;
       height:100%;
-      object-fit: contain;  /* ✅ shows whole photo */
+      object-fit:cover;
       object-position:center;
       display:block;
       image-orientation: from-image;
     }
 
-    /* Smaller screens */
+    /* Mobile sizes (bigger portrait, slightly smaller landscape) */
     @media (max-width: 520px){
-      .photo{ width:260px; height:185px; }
       .brand{ display:none; }
+
+      .photo.landscape{ width:280px; height:190px; }
+      .photo.portrait{  width:240px; height:360px; }
     }
   </style>
 </head>
@@ -188,13 +163,13 @@
     <div class="section">
       <h2 class="city-title">Dublin, Ireland</h2>
       <div class="scroller">
-        <div class="photo"><img src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4310.jpeg" alt="Dublin photo"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4315.jpeg" alt="Dublin photo"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4336.jpeg" alt="Dublin photo"></div>
-        <div class="photo"><img src="images/gallery/dublin/IMG_4391.jpeg" alt="Dublin photo"></div>
+        <div class="photo portrait"><img src="images/gallery/dublin/IMG_0099.jpeg" alt="Dublin photo"></div>
+        <div class="photo portrait"><img src="images/gallery/dublin/IMG_4272.jpeg" alt="Dublin photo"></div>
+        <div class="photo landscape"><img src="images/gallery/dublin/IMG_4299.jpeg" alt="Dublin photo"></div>
+        <div class="photo landscape"><img src="images/gallery/dublin/IMG_4310.jpeg" alt="Dublin photo"></div>
+        <div class="photo portrait"><img src="images/gallery/dublin/IMG_4315.jpeg" alt="Dublin photo"></div>
+        <div class="photo landscape"><img src="images/gallery/dublin/IMG_4336.jpeg" alt="Dublin photo"></div>
+        <div class="photo landscape"><img src="images/gallery/dublin/IMG_4391.jpeg" alt="Dublin photo"></div>
       </div>
     </div>
 
@@ -202,16 +177,16 @@
     <div class="section">
       <h2 class="city-title">Edinburgh, Scotland</h2>
       <div class="scroller">
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4407.jpeg" alt="Edinburgh photo"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4446.jpeg" alt="Edinburgh photo"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4453.jpeg" alt="Edinburgh photo"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4474.jpeg" alt="Edinburgh photo"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4483.jpeg" alt="Edinburgh photo"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4514.jpeg" alt="Edinburgh photo"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4531.jpeg" alt="Edinburgh photo"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4572.jpeg" alt="Edinburgh photo"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_4578.jpeg" alt="Edinburgh photo"></div>
-        <div class="photo"><img src="images/gallery/edinburgh/IMG_8595.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_4407.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_4446.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_4453.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_4474.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_4483.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_4514.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_4531.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_4572.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_4578.jpeg" alt="Edinburgh photo"></div>
+        <div class="photo portrait"><img src="images/gallery/edinburgh/IMG_8595.jpeg" alt="Edinburgh photo"></div>
       </div>
     </div>
 
@@ -219,29 +194,19 @@
     <div class="section">
       <h2 class="city-title">London, England</h2>
       <div class="scroller">
-        <div class="photo"><img src="images/gallery/london/IMG_4591.jpeg" alt="London photo"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4594.jpeg" alt="London photo"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4608.jpeg" alt="London photo"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4615.jpeg" alt="London photo"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4622.jpeg" alt="London photo"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4624.jpeg" alt="London photo"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4625.jpeg" alt="London photo"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4631.jpeg" alt="London photo"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4640.jpeg" alt="London photo"></div>
-        <div class="photo"><img src="images/gallery/london/IMG_4646.jpeg" alt="London photo"></div>
+        <div class="photo portrait"><img src="images/gallery/london/IMG_4591.jpeg" alt="London photo"></div>
+        <div class="photo portrait"><img src="images/gallery/london/IMG_4594.jpeg" alt="London photo"></div>
+        <div class="photo landscape"><img src="images/gallery/london/IMG_4608.jpeg" alt="London photo"></div>
+        <div class="photo portrait"><img src="images/gallery/london/IMG_4615.jpeg" alt="London photo"></div>
+        <div class="photo portrait"><img src="images/gallery/london/IMG_4622.jpeg" alt="London photo"></div>
+        <div class="photo portrait"><img src="images/gallery/london/IMG_4624.jpeg" alt="London photo"></div>
+        <div class="photo portrait"><img src="images/gallery/london/IMG_4625.jpeg" alt="London photo"></div>
+        <div class="photo portrait"><img src="images/gallery/london/IMG_4631.jpeg" alt="London photo"></div>
+        <div class="photo portrait"><img src="images/gallery/london/IMG_4640.jpeg" alt="London photo"></div>
+        <div class="photo portrait"><img src="images/gallery/london/IMG_4646.jpeg" alt="London photo"></div>
       </div>
     </div>
 
   </div>
-
-  <script>
-    // Sets the blurred background to match each image
-    document.querySelectorAll(".photo").forEach(tile => {
-      const img = tile.querySelector("img");
-      if (img && img.getAttribute("src")) {
-        tile.style.setProperty("--bg", `url("${img.getAttribute("src")}")`);
-      }
-    });
-  </script>
 </body>
 </html>
