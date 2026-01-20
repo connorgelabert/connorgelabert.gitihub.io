@@ -31,18 +31,13 @@
       padding: 14px 24px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      color: #e5e7eb;
-      text-decoration: none;
-      font-weight: 700;
+      justify-content: center;
     }
 
     .nav-links {
       display: flex;
       gap: 14px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
@@ -51,6 +46,7 @@
       padding: 8px 12px;
       border-radius: 999px;
       transition: all 0.2s ease;
+      border: 1px solid transparent;
     }
 
     .nav-links a.active {
@@ -62,13 +58,14 @@
     /* PAGE */
     .container {
       max-width: 900px;
-      margin: 120px auto;
+      margin: 120px auto 90px;
       padding: 0 24px;
     }
 
     h1 {
       font-size: 2.4rem;
       margin-bottom: 28px;
+      letter-spacing: -0.02em;
     }
 
     /* BLOG LIST */
@@ -89,7 +86,7 @@
     }
 
     .post-title {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 600;
       color: #e5e7eb;
       margin-bottom: 6px;
@@ -101,8 +98,8 @@
     }
 
     @media (max-width: 520px) {
-      .brand {
-        display: none;
+      h1 {
+        font-size: 2.1rem;
       }
     }
   </style>
@@ -111,7 +108,6 @@
 <body>
   <nav class="nav">
     <div class="nav-inner">
-      <a class="brand" href="index.html">Connor Gelabert</a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a class="active" href="blog.html">Blog</a>
@@ -124,19 +120,18 @@
   <div class="container">
     <h1>Blog</h1>
 
-    <!-- BLOG POST 1 -->
+    <!-- NEWEST BLOG POST -->
+    <a class="post-card" href="blog-balancing-life-and-finance.html">
+      <div class="post-title">Balancing Personal Finance With Living Your Life</div>
+      <div class="post-meta">January 2026</div>
+    </a>
+
+    <!-- PREVIOUS BLOG POST -->
     <a class="post-card" href="blog-consistency.html">
       <div class="post-title">The Key to New Year’s: Consistency</div>
       <div class="post-meta">January 2026</div>
     </a>
 
-    <!-- BLOG POST 2 -->
-    <a class="post-card" href="blog-balancing-finance.html">
-      <div class="post-title">Balancing Personal Finance While Living Your Life</div>
-      <div class="post-meta">February 2026</div>
-    </a>
-
-    <!-- FUTURE POSTS -->
   </div>
 </body>
 </html>
