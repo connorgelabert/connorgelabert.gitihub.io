@@ -6,136 +6,155 @@
   <title>Reading | Connor Gelabert</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:#0f172a;
+      color:#e5e7eb;
     }
 
     /* NAV */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(2, 6, 23, 0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      z-index: 1000;
+    .nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      background:rgba(2,6,23,.85);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      z-index:1000;
     }
-
-    .nav-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 14px 24px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
+    .nav-inner{
+      max-width:900px;
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-
-    .nav-inner a {
-      color: #cbd5f5;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 999px;
-      transition: all 0.2s ease;
+    .nav-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:nowrap;
     }
-
-    .nav-inner a.active {
-      border: 1px solid rgba(96,165,250,0.9);
-      background: rgba(30,41,59,0.7);
-      color: #e5e7eb;
+    .nav-links a{
+      color:#cbd5f5;
+      text-decoration:none;
+      padding:8px 14px;
+      border-radius:999px;
+      transition:all .2s ease;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(30,41,59,.35);
+    }
+    .nav-links a.active{
+      border:1px solid rgba(96,165,250,.9);
+      background:rgba(30,41,59,.7);
+      color:#e5e7eb;
     }
 
     /* PAGE */
-    .container {
-      max-width: 900px;
-      margin: 120px auto;
-      padding: 0 24px;
+    .container{
+      max-width:900px;
+      margin:110px auto 80px;
+      padding:0 24px;
+    }
+    h1{
+      font-size:2.6rem;
+      margin:18px 0 26px;
+      letter-spacing:-0.02em;
     }
 
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 28px;
+    /* BOOK LIST */
+    .books{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .book-card{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      text-decoration:none;
+      background:#111827;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      padding:16px;
+      transition:transform .2s ease,border-color .2s ease;
+    }
+    .book-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(96,165,250,.6);
+    }
+    .cover{
+      width:84px;
+      height:84px;
+      border-radius:14px;
+      object-fit:cover;
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+      flex:0 0 auto;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.15);
+    }
+    .book-meta{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width:0;
+    }
+    .title{
+      font-size:1.25rem;
+      font-weight:700;
+      color:#e5e7eb;
+      margin:0;
+      line-height:1.15;
+    }
+    .author{
+      color:#9ca3af;
+      margin:0;
+      font-size:1rem;
     }
 
-    /* BOOK CARD */
-    .book-card {
-      background: #111827;
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .book-header {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-    }
-
-    .book-cover {
-      width: 90px;
-      height: 135px;
-      object-fit: cover;
-      border-radius: 8px;
-      flex-shrink: 0;
-    }
-
-    .book-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .book-author {
-      color: #9ca3af;
-      margin-bottom: 14px;
-    }
-
-    .book-text {
-      color: #d1d5db;
-      line-height: 1.65;
-      margin-top: 14px;
+    @media (max-width: 420px){
+      .cover{ width:74px; height:74px; }
+      .title{ font-size:1.15rem; }
     }
   </style>
 </head>
 
 <body>
-
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html">Home</a>
-      <a href="blog.html">Blog</a>
-      <a class="active" href="reading.html">Reading</a>
-      <a href="gallery.html">Gallery</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a class="active" href="reading.html">Reading</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
     </div>
   </nav>
 
-  <div class="container">
+  <main class="container">
     <h1>Reading</h1>
 
-    <!-- BOOK -->
-    <div class="book-card">
-      <div class="book-header">
-        <img src="IMG_6376.jpeg" alt="Meditations book cover" class="book-cover" />
-        <div>
-          <div class="book-title">Meditations</div>
-          <div class="book-author">Marcus Aurelius</div>
+    <section class="books">
+      <!-- Meditations -->
+      <a class="book-card" href="reading-meditations.html" aria-label="Meditations by Marcus Aurelius">
+        <img class="cover" src="IMG_6376.jpeg" alt="Meditations cover" />
+        <div class="book-meta">
+          <p class="title">Meditations</p>
+          <p class="author">Marcus Aurelius</p>
         </div>
-      </div>
+      </a>
 
-      <div class="book-text">
-        Meditations is a collection of private reflections written by one of the most powerful men in history, the Emperor of Rome. Throughout these entries, Marcus Aurelius returns to several core themes, including the importance of controlling one’s emotions, resisting the desire for fame and external praise, and accepting death as an unavoidable part of life.
-        <br><br>
-        The theme that resonated most with me is his belief that many of our problems are created in the mind. Aurelius suggests that events themselves are rarely the true source of our suffering. Instead, it is our perception of them that causes distress. How we interpret situations ultimately determines how we feel about them.
-        <br><br>
-        When addressing anxiety about the future, Aurelius offers a simple but powerful reminder: “Let not future things disturb you, for you will come to them, if it shall be necessary, having with you the same reason which you now use for present things.” His message is that the same rational thinking that helps us navigate today’s challenges will also be available to us when tomorrow arrives.
-      </div>
-    </div>
+      <!-- Your other book (PUT IT BACK HERE) -->
+      <!-- Replace the href + image + title + author to match your real book -->
+      <a class="book-card" href="reading-other-book.html" aria-label="Open book takeaway">
+        <img class="cover" src="IMG_3078.jpeg" alt="Book cover" />
+        <div class="book-meta">
+          <p class="title">Your Other Book Title</p>
+          <p class="author">Author Name</p>
+        </div>
+      </a>
 
-  </div>
-
+    </section>
+  </main>
 </body>
 </html>
