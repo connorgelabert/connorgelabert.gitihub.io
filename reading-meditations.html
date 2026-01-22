@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meditations | Reading | Connor Gelabert</title>
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --panel:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:rgba(255,255,255,0.08);
+      --blue:rgba(96,165,250,0.9);
+      --chip:rgba(30,41,59,0.7);
+      --nav:rgba(2,6,23,0.85);
+    }
+
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+    }
+
+    /* NAV */
+    .nav{
+      position:fixed;
+      top:0; left:0; right:0;
+      background:var(--nav);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+      z-index:1000;
+    }
+    .nav-inner{
+      max-width:900px;
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .nav-links{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:nowrap;
+    }
+    .nav-links a{
+      color:#cbd5f5;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:999px;
+      transition: all .2s ease;
+      border:1px solid transparent;
+      background:transparent;
+      white-space:nowrap;
+    }
+    .nav-links a.active{
+      border:1px solid var(--blue);
+      background:var(--chip);
+      color:var(--text);
+    }
+
+    /* PAGE */
+    .container{
+      max-width:900px;
+      margin:120px auto;
+      padding:0 24px 60px;
+    }
+
+    .back{
+      display:inline-block;
+      margin-bottom:18px;
+      color:#cbd5f5;
+      text-decoration:none;
+      opacity:.9;
+    }
+    .back:hover{ opacity:1; }
+
+    .hero{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:18px;
+    }
+
+    .cover{
+      width:96px;
+      height:96px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.02);
+      flex:0 0 auto;
+    }
+    .cover img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
+
+    .title{
+      margin:0;
+      font-size:1.6rem;
+      letter-spacing:-0.02em;
+    }
+    .author{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:22px;
+    }
+
+    p{
+      margin:0 0 14px;
+      color:#d1d5db;
+      font-size:1.05rem;
+    }
+
+    blockquote{
+      margin:18px 0 0;
+      padding:14px 16px;
+      border-left:3px solid rgba(96,165,250,0.8);
+      background:rgba(255,255,255,0.03);
+      border-radius:12px;
+      color:#e5e7eb;
+    }
+    blockquote p{ margin:0; color:#e5e7eb; }
+
+    @media (max-width:420px){
+      .title{ font-size:1.45rem; }
+      .cover{ width:86px; height:86px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a class="active" href="reading.html">Reading</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <a class="back" href="reading.html">← Back to Reading</a>
+
+    <div class="hero">
+      <div class="cover">
+        <img src="IMG_6376.jpeg" alt="Meditations book cover" />
+      </div>
+      <div>
+        <h1 class="title">Meditations</h1>
+        <div class="author">Marcus Aurelius</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>
+        Meditations is a collection of private reflections written by one of the most powerful men in history, the Emperor of Rome.
+        Across these entries, Aurelius returns to several core themes, including the importance of controlling one’s emotions,
+        resisting the pull of fame and external praise, and accepting death as an unavoidable part of life.
+      </p>
+
+      <p>
+        The theme that resonated most with me is his belief that many problems are created in the mind.
+        Our perception of an event, labeling it as “bad” or “stressful,” is often the real source of unhappiness.
+        If you can control how you interpret what happens, you can keep your peace and respond with clarity instead of emotion.
+      </p>
+
+      <p>
+        When it comes to anxiety, he reminds you to stay anchored in the present and trust that you’ll handle the future when it arrives.
+      </p>
+
+      <blockquote>
+        <p>
+          “Let not future things disturb you, for you will come to them, if it shall be necessary, having with you the same reason which you now use for present things.”
+        </p>
+      </blockquote>
+    </div>
+  </div>
+</body>
+</html>
