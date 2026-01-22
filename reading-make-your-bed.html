@@ -6,230 +6,87 @@
   <title>Make Your Bed | Connor Gelabert</title>
 
   <style>
-    :root{
-      --bg:#0f172a;
-      --panel:#111827;
-      --panel2:#0b1224;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --line:rgba(255,255,255,0.10);
-      --blue:rgba(96,165,250,0.9);
-      --blue2:rgba(96,165,250,0.55);
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
     }
 
-    * { box-sizing: border-box; }
-
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background: radial-gradient(1200px 700px at 50% 0%, rgba(59,130,246,0.18), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-    }
-
-    /* NAV */
-    .nav{
-      position:fixed;
-      top:0; left:0; right:0;
-      background: rgba(2,6,23,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
-      z-index:1000;
-    }
-
-    .nav-inner{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 14px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:12px;
-      flex-wrap:nowrap;
-    }
-
-    .nav-links a{
-      color:#cbd5f5;
-      text-decoration:none;
-      padding:10px 14px;
-      border-radius:999px;
-      transition: all .2s ease;
-      border:1px solid rgba(255,255,255,0.08);
-      background: rgba(15,23,42,0.35);
-      white-space:nowrap;
-    }
-
-    .nav-links a:hover{
-      border-color: rgba(96,165,250,0.45);
-      transform: translateY(-1px);
-    }
-
-    .nav-links a.active{
-      border:1px solid var(--blue);
-      background: rgba(30,41,59,0.70);
-      color: var(--text);
-    }
-
-    /* PAGE */
-    .container{
+    .container {
       max-width: 900px;
-      margin: 110px auto 80px;
-      padding: 0 18px;
+      margin: 120px auto;
+      padding: 0 24px;
     }
 
-    .back{
-      display:inline-block;
-      margin-bottom: 16px;
-      color:#cbd5f5;
-      text-decoration:none;
-      font-size: 0.95rem;
-      opacity:0.9;
+    .back {
+      color: #9ca3af;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 24px;
     }
 
-    .back:hover{
-      opacity:1;
-      text-decoration: underline;
-    }
-
-    .card{
-      border:1px solid var(--line);
-      background: rgba(17,24,39,0.70);
-      border-radius: 20px;
-      padding: 26px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.30);
-    }
-
-    /* Book header */
-    .book-header{
-      display:flex;
-      gap: 18px;
+    .header {
+      display: flex;
       align-items: center;
-      margin-bottom: 18px;
+      gap: 20px;
+      background: #111827;
+      padding: 24px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
     }
 
-    .cover{
-      width: 92px;
-      height: 92px;
-      border-radius: 16px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      flex: 0 0 auto;
-    }
-
-    .cover img{
-      width:100%;
-      height:100%;
+    .header img {
+      width: 96px;
+      height: 96px;
       object-fit: cover;
-      display:block;
+      border-radius: 16px;
     }
 
-    .title-wrap h1{
-      margin:0;
+    h1 {
+      margin: 0;
       font-size: 2rem;
-      letter-spacing: -0.02em;
     }
 
-    .author{
-      margin-top:6px;
-      color: var(--muted);
+    h2 {
+      margin: 6px 0 0;
+      color: #9ca3af;
+      font-weight: 400;
+    }
+
+    p {
       font-size: 1.05rem;
-    }
-
-    .chips{
-      display:flex;
-      gap:10px;
-      flex-wrap: wrap;
-      margin: 18px 0 6px;
-    }
-
-    .chip{
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(96,165,250,0.35);
-      background: rgba(15,23,42,0.35);
-      color: #cbd5f5;
-      font-size: 0.95rem;
-    }
-
-    .divider{
-      height:1px;
-      background: rgba(255,255,255,0.08);
-      margin: 18px 0 18px;
-    }
-
-    .content{
-      font-size: 1.08rem;
-      line-height: 1.85;
+      line-height: 1.7;
       color: #d1d5db;
-    }
-
-    .content p{
-      margin: 0 0 18px;
-    }
-
-    @media (max-width: 520px){
-      .book-header{ align-items:flex-start; }
-      .title-wrap h1{ font-size: 1.7rem; }
-      .cover{ width:84px; height:84px; }
-      .nav-links a{ padding:9px 12px; }
+      margin-bottom: 20px;
     }
   </style>
 </head>
 
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
-        <a class="active" href="reading.html">Reading</a>
-        <a href="gallery.html">Gallery</a>
-      </div>
-    </div>
-  </nav>
-
   <div class="container">
     <a class="back" href="reading.html">← Back to Reading</a>
 
-    <div class="card">
-      <div class="book-header">
-        <div class="cover">
-          <img src="IMG_6311.png" alt="Make Your Bed book cover" />
-        </div>
-        <div class="title-wrap">
-          <h1>Make Your Bed</h1>
-          <div class="author">William H. McRaven</div>
-        </div>
-      </div>
-
-      <div class="chips">
-        <div class="chip">Takeaway</div>
-        <div class="chip">Discipline</div>
-        <div class="chip">Habits</div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="content">
-        <p>
-          In this book, Admiral McRaven does an incredible job translating his Navy experience into simple lessons that
-          can genuinely improve your life. The most basic, but arguably most important, is the habit of making your bed
-          each morning. By doing it, you complete your first task of the day and create a small win you can build on for
-          the rest of the day.
-        </p>
-
-        <p>
-          Maybe it’s because I’ve always liked things neat and tidy, but I try my best to make my bed every morning.
-          It isn’t always easy, especially when I’m rushing out the door. Still, there’s no better feeling than coming
-          home to a made bed. No matter how hard my day was, I can at least come back to that simple comfort.
-        </p>
+    <div class="header">
+      <img src="IMG_6311.png" alt="Make Your Bed cover">
+      <div>
+        <h1>Make Your Bed</h1>
+        <h2>William H. McRaven</h2>
       </div>
     </div>
+
+    <p>
+      In this book, Admiral McRaven does an excellent job translating his experiences in the Navy into simple lessons that can genuinely improve everyday life. The most basic, yet arguably most important lesson he shares is the habit of making your bed each morning.
+    </p>
+
+    <p>
+      By completing this small task at the start of the day, you create an early sense of accomplishment. That initial win sets a positive tone and can carry forward into other tasks, reinforcing discipline and momentum as the day unfolds.
+    </p>
+
+    <p>
+      I have always appreciated things being clean and orderly, and this book reinforced the value of that mindset. Even on rushed mornings, taking the time to make the bed is a reminder that small, consistent actions matter. No matter how difficult the day becomes, coming home to a made bed provides a sense of comfort and closure.
+    </p>
   </div>
 </body>
 </html>
