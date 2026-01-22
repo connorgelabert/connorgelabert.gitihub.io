@@ -6,20 +6,31 @@
   <title>Reading | Connor Gelabert</title>
 
   <style>
+    :root{
+      --bg:#0f172a;
+      --panel:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:rgba(255,255,255,0.08);
+      --blue:rgba(96,165,250,0.9);
+      --chip:rgba(30,41,59,0.7);
+      --nav:rgba(2,6,23,0.85);
+    }
+
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:#0f172a;
-      color:#e5e7eb;
+      background:var(--bg);
+      color:var(--text);
     }
 
     /* NAV */
     .nav{
       position:fixed;
-      top:0;left:0;right:0;
-      background:rgba(2,6,23,.85);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      top:0; left:0; right:0;
+      background:var(--nav);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
       z-index:1000;
     }
     .nav-inner{
@@ -34,87 +45,92 @@
       display:flex;
       gap:14px;
       flex-wrap:nowrap;
+      justify-content:center;
     }
     .nav-links a{
       color:#cbd5f5;
       text-decoration:none;
-      padding:8px 14px;
+      padding:10px 14px;
       border-radius:999px;
-      transition:all .2s ease;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(30,41,59,.35);
+      transition: all .2s ease;
+      border:1px solid transparent;
+      background:transparent;
+      white-space:nowrap;
     }
     .nav-links a.active{
-      border:1px solid rgba(96,165,250,.9);
-      background:rgba(30,41,59,.7);
-      color:#e5e7eb;
+      border:1px solid var(--blue);
+      background:var(--chip);
+      color:var(--text);
     }
 
     /* PAGE */
     .container{
       max-width:900px;
-      margin:110px auto 80px;
+      margin:120px auto;
       padding:0 24px;
     }
     h1{
-      font-size:2.6rem;
-      margin:18px 0 26px;
+      font-size:3rem;
+      margin:0 0 26px;
       letter-spacing:-0.02em;
     }
 
     /* BOOK LIST */
-    .books{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-    }
     .book-card{
       display:flex;
-      gap:16px;
       align-items:center;
-      text-decoration:none;
-      background:#111827;
-      border:1px solid rgba(255,255,255,.08);
+      gap:18px;
+      padding:18px;
       border-radius:18px;
-      padding:16px;
-      transition:transform .2s ease,border-color .2s ease;
+      background:var(--panel);
+      border:1px solid var(--border);
+      text-decoration:none;
+      color:inherit;
+      transition:transform .2s ease, border-color .2s ease;
+      margin-bottom:16px;
     }
     .book-card:hover{
       transform:translateY(-2px);
-      border-color:rgba(96,165,250,.6);
-    }
-    .cover{
-      width:84px;
-      height:84px;
-      border-radius:14px;
-      object-fit:cover;
-      box-shadow:0 12px 30px rgba(0,0,0,.35);
-      flex:0 0 auto;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.15);
-    }
-    .book-meta{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      min-width:0;
-    }
-    .title{
-      font-size:1.25rem;
-      font-weight:700;
-      color:#e5e7eb;
-      margin:0;
-      line-height:1.15;
-    }
-    .author{
-      color:#9ca3af;
-      margin:0;
-      font-size:1rem;
+      border-color:rgba(96,165,250,0.6);
     }
 
-    @media (max-width: 420px){
-      .cover{ width:74px; height:74px; }
-      .title{ font-size:1.15rem; }
+    /* Cover: better fit + no stretching */
+    .cover{
+      width:92px;
+      height:92px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.02);
+      flex:0 0 auto;
+    }
+    .cover img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
+
+    .book-info{
+      min-width:0;
+    }
+    .book-title{
+      font-size:1.35rem;
+      font-weight:650;
+      margin:0 0 6px;
+      letter-spacing:-0.01em;
+    }
+    .book-author{
+      margin:0;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    @media (max-width:420px){
+      h1{ font-size:2.6rem; }
+      .cover{ width:82px; height:82px; border-radius:13px; }
+      .book-title{ font-size:1.25rem; }
     }
   </style>
 </head>
@@ -131,30 +147,31 @@
     </div>
   </nav>
 
-  <main class="container">
+  <div class="container">
     <h1>Reading</h1>
 
-    <section class="books">
-      <!-- Meditations -->
-      <a class="book-card" href="reading-meditations.html" aria-label="Meditations by Marcus Aurelius">
-        <img class="cover" src="IMG_6376.jpeg" alt="Meditations cover" />
-        <div class="book-meta">
-          <p class="title">Meditations</p>
-          <p class="author">Marcus Aurelius</p>
-        </div>
-      </a>
+    <!-- Meditations -->
+    <a class="book-card" href="reading-meditations.html" aria-label="Meditations by Marcus Aurelius">
+      <div class="cover">
+        <img src="IMG_6376.jpeg" alt="Meditations book cover" />
+      </div>
+      <div class="book-info">
+        <p class="book-title">Meditations</p>
+        <p class="book-author">Marcus Aurelius</p>
+      </div>
+    </a>
 
-      <!-- Your other book (PUT IT BACK HERE) -->
-      <!-- Replace the href + image + title + author to match your real book -->
-      <a class="book-card" href="reading-other-book.html" aria-label="Open book takeaway">
-        <img class="cover" src="IMG_3078.jpeg" alt="Book cover" />
-        <div class="book-meta">
-          <p class="title">Your Other Book Title</p>
-          <p class="author">Author Name</p>
-        </div>
-      </a>
+    <!-- Make Your Bed -->
+    <a class="book-card" href="reading-make-your-bed.html" aria-label="Make Your Bed by William H. McRaven">
+      <div class="cover">
+        <img src="IMG_6311.png" alt="Make Your Bed book cover" />
+      </div>
+      <div class="book-info">
+        <p class="book-title">Make Your Bed</p>
+        <p class="book-author">William H. McRaven</p>
+      </div>
+    </a>
 
-    </section>
-  </main>
+  </div>
 </body>
 </html>
