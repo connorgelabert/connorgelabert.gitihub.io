@@ -13,12 +13,13 @@
       color: #e5e7eb;
     }
 
+    /* NAV */
     .nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(2,6,23,0.85);
+      background: rgba(2, 6, 23, 0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       z-index: 1000;
@@ -30,17 +31,17 @@
       padding: 14px 24px;
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 14px;
     }
 
-    .nav a {
+    .nav-inner a {
       color: #cbd5f5;
       text-decoration: none;
-      padding: 8px 14px;
+      padding: 8px 16px;
       border-radius: 999px;
     }
 
-    .nav a.active {
+    .nav-inner a.active {
       border: 1px solid rgba(96,165,250,0.9);
       background: rgba(30,41,59,0.7);
       color: #e5e7eb;
@@ -54,43 +55,55 @@
 
     h1 {
       font-size: 2.4rem;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
+    h2 {
+      font-size: 1.4rem;
+      margin: 32px 0 16px;
+      color: #e5e7eb;
+    }
+
+    /* BOOK CARDS */
     .book-card {
       display: flex;
-      align-items: center;
       gap: 18px;
       background: #111827;
       border-radius: 18px;
       padding: 18px;
       margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
       text-decoration: none;
       color: inherit;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .book-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(96,165,250,0.6);
     }
 
     .book-card img {
-      width: 72px;
-      height: 72px;
+      width: 80px;
+      height: 120px;
       object-fit: cover;
       border-radius: 12px;
     }
 
+    .book-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .book-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 600;
     }
 
     .book-author {
       color: #9ca3af;
       margin-top: 4px;
+    }
+
+    .status {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: #60a5fa;
     }
   </style>
 </head>
@@ -108,22 +121,37 @@
   <div class="container">
     <h1>Reading</h1>
 
-    <!-- Links updated to match your real filenames -->
+    <!-- CURRENTLY READING -->
+    <h2>Currently Reading</h2>
+
+    <div class="book-card">
+      <img src="IMG_6397.jpeg" alt="Currently Reading Book Cover">
+      <div class="book-info">
+        <div class="book-title">Currently Reading</div>
+        <div class="book-author">In Progress</div>
+        <div class="status">Started recently</div>
+      </div>
+    </div>
+
+    <!-- FINISHED READING -->
+    <h2>Finished</h2>
+
     <a class="book-card" href="reading-meditations.html">
-      <img src="IMG_6376.jpeg" alt="Meditations cover">
-      <div>
+      <img src="IMG_6376.jpeg" alt="Meditations book cover">
+      <div class="book-info">
         <div class="book-title">Meditations</div>
         <div class="book-author">Marcus Aurelius</div>
       </div>
     </a>
 
     <a class="book-card" href="reading-make-your-bed.html">
-      <img src="IMG_6311.png" alt="Make Your Bed cover">
-      <div>
+      <img src="IMG_6311.png" alt="Make Your Bed book cover">
+      <div class="book-info">
         <div class="book-title">Make Your Bed</div>
         <div class="book-author">William H. McRaven</div>
       </div>
     </a>
+
   </div>
 </body>
 </html>
