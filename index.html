@@ -4,279 +4,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Connor Gelabert</title>
-  <meta name="description" content="Connor Gelabert — Supply chain & procurement professional. Buying, contract negotiation, and supplier management." />
 
   <style>
-    :root{
-      --bg:#0f172a;
-      --panel:rgba(255,255,255,0.03);
-      --panel2:rgba(255,255,255,0.05);
-      --border:rgba(255,255,255,0.10);
-      --border2:rgba(255,255,255,0.14);
-      --text:#e5e7eb;
-      --muted:#cbd5f5;
-      --muted2:#9ca3af;
-      --blue:rgba(96,165,250,0.95);
-      --blue2:rgba(96,165,250,0.55);
-      --shadow:0 22px 60px rgba(0,0,0,0.35);
-    }
-
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 800px at 50% 0%, rgba(96,165,250,0.10), transparent 60%),
-                  var(--bg);
-      color:var(--text);
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
     }
 
     /* NAV */
-    .nav{
-      position:fixed;
-      top:0; left:0; right:0;
-      background:rgba(2,6,23,0.85);
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(2,6,23,0.85);
       backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      z-index:1000;
-    }
-    .nav-inner{
-      max-width:980px;
-      margin:0 auto;
-      padding:14px 16px;
-      display:flex;
-      justify-content:center;
-    }
-    .nav-links{
-      display:flex;
-      gap:12px;
-      flex-wrap:nowrap;
-    }
-    .nav-links a{
-      color:var(--muted);
-      text-decoration:none;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.12);
-      white-space:nowrap;
-      transition:all .18s ease;
-    }
-    .nav-links a:hover{
-      border-color:rgba(255,255,255,0.20);
-      background:rgba(255,255,255,0.04);
-    }
-    .nav-links a.active{
-      border-color:var(--blue);
-      background:rgba(30,41,59,0.7);
-      color:var(--text);
-    }
-    .nav-links a:focus-visible{
-      outline:2px solid var(--blue);
-      outline-offset:2px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 1000;
     }
 
-    /* PAGE */
-    .container{
-      max-width:980px;
-      margin:110px auto 90px;
-      padding:0 22px;
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: center;
     }
 
-    /* HERO */
-    .hero{
-      display:grid;
-      grid-template-columns: 260px 1fr;
-      gap:28px;
-      align-items:center;
-      padding:18px 0 8px;
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: nowrap;
     }
 
-    .profile-wrap{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:14px;
+    .nav-links a {
+      color: #cbd5f5;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      white-space: nowrap;
     }
 
-    .profile{
-      width:210px;
-      height:210px;
-      border-radius:50%;
-      overflow:hidden;
-      border:3px solid rgba(255,255,255,0.14);
-      box-shadow: var(--shadow);
-      background:rgba(0,0,0,0.2);
-    }
-    .profile img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-
-    .ny{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:10px;
-    }
-    .ny img{
-      width:175px;
-      filter: drop-shadow(0 10px 28px rgba(0,0,0,0.35));
-      display:block;
-    }
-    .based{
-      color:var(--muted2);
-      margin:0;
-      font-size:0.98rem;
-    }
-
-    .hero-main h1{
-      margin:0 0 10px;
-      font-size:clamp(2.6rem, 6vw, 3.4rem);
-      letter-spacing:-0.03em;
-      line-height:1.05;
-    }
-    .hero-main h1 span{
-      display:block;
-      opacity:0.95;
-    }
-
-    .subtitle{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:1.06rem;
-      line-height:1.7;
-      max-width:56ch;
-    }
-
-    .badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:0 0 18px;
-    }
-    .badge{
-      padding:7px 12px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,0.03);
-      color:rgba(229,231,235,0.92);
-      font-size:0.92rem;
-      white-space:nowrap;
-    }
-
-    .cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:0 0 12px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:9px;
-      padding:9px 16px;
-      border-radius:999px;
-      border:1px solid var(--border2);
-      background:rgba(255,255,255,0.03);
-      color:var(--text);
-      text-decoration:none;
-      font-weight:600;
-      transition:all .18s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
+    .nav-links a.active {
       border-color: rgba(96,165,250,0.9);
-      background: rgba(30,41,59,0.65);
-    }
-    .btn.primary{
-      border-color: var(--blue);
-      background: rgba(30,41,59,0.70);
-    }
-    .btn:focus-visible{
-      outline:2px solid var(--blue);
-      outline-offset:2px;
+      background: rgba(30,41,59,0.7);
+      color: #e5e7eb;
     }
 
-    .tiny{
-      color:var(--muted2);
-      font-size:0.95rem;
-      margin:0;
+    /* CONTENT */
+    .container {
+      max-width: 900px;
+      margin: 120px auto 90px;
+      padding: 0 24px;
     }
 
-    /* SECTIONS */
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-      margin-top:26px;
+    .top-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      text-align: center;
     }
 
-    .card{
-      border:1px solid var(--border);
-      background: var(--panel);
-      border-radius:18px;
-      padding:16px 16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.20);
-    }
-    .card h2{
-      margin:0 0 10px;
-      font-size:1.15rem;
-      letter-spacing:-0.01em;
-    }
-    .card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
+    .profile {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid rgba(255,255,255,0.15);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
     }
 
-    .list{
-      margin:10px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      line-height:1.75;
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .footer-cta{
-      margin-top:18px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      padding:16px;
-      border-radius:18px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,0.035);
+    .ny-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
 
-    .footer-cta .left{
-      color:var(--muted);
-      line-height:1.5;
-    }
-    .footer-cta strong{ color:var(--text); }
-
-    .site-footer{
-      margin-top:26px;
-      color:rgba(203,213,245,0.70);
-      font-size:0.92rem;
-      text-align:center;
+    .ny-img {
+      width: 170px;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.35));
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 820px){
-      .hero{
-        grid-template-columns:1fr;
-        gap:18px;
-      }
-      .hero-main{ text-align:center; }
-      .subtitle{ margin-left:auto; margin-right:auto; }
-      .badges, .cta-row{ justify-content:center; }
+    .based {
+      color: #9ca3af;
+      font-size: 1rem;
+      margin: 0;
     }
 
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      .btn:hover{ transform:none; }
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(96,165,250,0.6);
+      background: rgba(30,41,59,0.55);
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .resume-btn:hover {
+      background: rgba(30,41,59,0.8);
+      border-color: rgba(96,165,250,0.9);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 26px 0 18px;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      max-width: 650px;
+      line-height: 1.7;
+      color: #cbd5f5;
+      margin: 0 auto 18px;
+      text-align: left;
+    }
+
+    @media (max-width: 520px) {
+      .profile { width: 175px; height: 175px; }
+      .ny-img { width: 155px; }
+      h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -294,109 +158,34 @@
   </nav>
 
   <main class="container">
-    <section class="hero">
-      <div class="profile-wrap">
-        <div class="profile">
-          <img src="IMG_3078.jpeg" alt="Connor Gelabert" loading="eager" decoding="async" />
-        </div>
+    <section class="top-row">
+      <div class="profile">
+        <img src="IMG_3078.jpeg" alt="Connor Gelabert">
+      </div>
 
-        <div class="ny">
-          <img src="3B6A4509-D4B8-4462-A060-5EE7D3D02100.png" alt="New York State" loading="lazy" decoding="async" />
-          <p class="based">Based in Rochester, NY</p>
-        </div>
+      <div class="ny-section">
+        <img class="ny-img" src="3B6A4509-D4B8-4462-A060-5EE7D3D02100.png" alt="New York State">
+        <p class="based">Based in Rochester, NY</p>
 
-        <!-- Resume link: update filename if yours is different -->
-        <a class="btn primary" href="Connor%20Gelabert%20Resume.pdf" target="_blank" rel="noopener">
+        <a class="resume-btn" href="resume.html.pdf" target="_blank" rel="noopener">
           📄 View Resume
         </a>
       </div>
-
-      <div class="hero-main">
-        <h1>
-          Connor
-          <span>Gelabert</span>
-        </h1>
-
-        <p class="subtitle">
-          Supply chain & procurement professional focused on buying, contract negotiation,
-          and building strong, results-driven supplier relationships.
-        </p>
-
-        <div class="badges">
-          <div class="badge">Senior Procurement Associate</div>
-          <div class="badge">Sourcing & Negotiation</div>
-          <div class="badge">Supplier Management</div>
-          <div class="badge">Direct + Indirect</div>
-        </div>
-
-        <div class="cta-row">
-          <!-- Update these links to your real profiles if you want -->
-          <a class="btn primary" href="gallery.html">🖼️ View Gallery</a>
-          <a class="btn" href="blog.html">✍️ Read Blog</a>
-          <a class="btn" href="mailto:Connor.Gelabert@gmail.com">✉️ Email Me</a>
-          <!-- Optional: add your LinkedIn URL here -->
-          <!-- <a class="btn" href="https://www.linkedin.com/in/YOUR-USERNAME" target="_blank" rel="noopener">in LinkedIn</a> -->
-        </div>
-
-        <p class="tiny">Currently in mission-critical communications at <strong>L3Harris</strong>.</p>
-      </div>
     </section>
 
-    <section class="grid">
-      <div class="card">
-        <h2>About</h2>
-        <p>
-          I work across sourcing and procurement to keep programs moving—balancing cost,
-          lead time, and quality while building supplier relationships that deliver.
-        </p>
-      </div>
+    <h1>Connor<br>Gelabert</h1>
 
-      <div class="card">
-        <h2>What I Do</h2>
-        <ul class="list">
-          <li>RFQs, supplier negotiations, and PO execution</li>
-          <li>Contract review + commercial terms alignment</li>
-          <li>Supplier performance, risk, and delivery follow-ups</li>
-        </ul>
-      </div>
+    <p>
+      I’m Connor Gelabert, a supply chain and procurement professional with experience
+      across both direct and indirect sourcing. I specialize in buying, contract
+      negotiation, and building strong, results-driven supplier relationships.
+    </p>
 
-      <div class="card">
-        <h2>Highlights</h2>
-        <ul class="list">
-          <li>Direct procurement for audio/UI components integrated into end products</li>
-          <li>Cross-functional coordination with engineering, quality, and ops</li>
-          <li>Data-driven decision making and process improvement</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>Skills</h2>
-        <ul class="list">
-          <li>Sourcing • Negotiation • Supplier Management</li>
-          <li>Excel / Sheets • Dashboards • Reporting</li>
-          <li>Stakeholder Management • Clear communication</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="footer-cta" style="margin-top:18px;">
-      <div class="left">
-        <strong>Want to connect?</strong><br/>
-        Best way to reach me is email. Resume is up top.
-      </div>
-      <div class="right" style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn primary" href="mailto:Connor.Gelabert@gmail.com">✉️ Email</a>
-        <a class="btn" href="gallery.html">🖼️ Gallery</a>
-      </div>
-    </section>
-
-    <div class="site-footer">
-      © <span id="y"></span> Connor Gelabert • Built on GitHub Pages
-    </div>
+    <p>
+      In my current role as a <strong>Senior Procurement Associate</strong> in the
+      mission-critical communications sector at <strong>L3Harris</strong>, I manage
+      the procurement of audio and user interface components that are integrated
+      directly into products supporting American and allied warfighters.
+    </p>
   </main>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
-</html>
