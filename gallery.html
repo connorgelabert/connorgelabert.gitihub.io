@@ -13,7 +13,6 @@
       color:#e5e7eb;
     }
 
-    /* NAV */
     .nav{
       position:fixed;
       top:0; left:0; right:0;
@@ -48,7 +47,6 @@
       color:#e5e7eb;
     }
 
-    /* CONTENT */
     .container{
       max-width:900px;
       margin:120px auto 90px;
@@ -65,7 +63,6 @@
       letter-spacing:-0.02em;
     }
 
-    /* PHOTO STRIP */
     .photo-strip{
       display:flex;
       gap:16px;
@@ -83,7 +80,6 @@
       border-radius:20px;
     }
 
-    /* PHOTO CARD */
     .photo-card{
       flex:0 0 auto;
       border-radius:18px;
@@ -92,12 +88,9 @@
       background:rgba(0,0,0,0.20);
       scroll-snap-align:start;
 
-      /* Default size before JS detects orientation */
       width:360px;
       height:240px;
     }
-
-    /* Detected sizes */
     .photo-card.wide{ width:360px; height:240px; }
     .photo-card.tall{ width:220px; height:300px; }
 
@@ -136,17 +129,10 @@
 
   <main class="container">
     <h1>Gallery</h1>
-
-    <!-- Engine renders cities + photos here -->
     <div id="gallery-root"></div>
   </main>
 
   <script>
-    // ✅ GALLERY ENGINE UPGRADE:
-    // 1) You only edit this list (cities + filenames)
-    // 2) The page auto-builds the gallery
-    // 3) Each image auto-detects portrait vs landscape and sets tall/wide
-
     const GALLERY = [
       {
         title: "Dublin, Ireland",
@@ -171,13 +157,13 @@
       {
         title: "Cologne, Germany",
         folder: "cologne",
-        files: ["IMG_6612.jpeg","IMG_6605.jpeg","IMG_6609.jpeg","IMG_6601.jpeg","IMG_6595.jpeg","IMG_6592.jpeg","IMG_6617.jpeg"]
+        files: ["IMG_6612.jpeg","IMG_6605.jpeg","IMG_6610.jpeg","IMG_6601.jpeg","IMG_6595.jpeg","IMG_6592.jpeg","IMG_6617.jpeg"]
       }
     ];
 
     const root = document.getElementById("gallery-root");
 
-    function createCitySection(city) {
+    function createCitySection(city){
       const h2 = document.createElement("h2");
       h2.className = "city-title";
       h2.textContent = city.title;
@@ -187,7 +173,7 @@
 
       city.files.forEach((file) => {
         const card = document.createElement("div");
-        card.className = "photo-card"; // wide/tall added after load
+        card.className = "photo-card";
 
         const img = document.createElement("img");
         img.loading = "lazy";
@@ -195,15 +181,13 @@
         img.src = `images/gallery/${city.folder}/${file}`;
         img.alt = `${city.title} ${file}`;
 
-        const setOrientationClass = () => {
-          // If image is landscape -> wide, else portrait -> tall
+        function setOrientation(){
           const isLandscape = img.naturalWidth >= img.naturalHeight;
           card.classList.add(isLandscape ? "wide" : "tall");
-        };
+        }
 
-        // Works for cached + newly loaded images
-        img.addEventListener("load", setOrientationClass);
-        if (img.complete) setOrientationClass();
+        img.addEventListener("load", setOrientation);
+        if (img.complete) setOrientation();
 
         card.appendChild(img);
         strip.appendChild(card);
