@@ -1,203 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery | Connor Gelabert</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gallery | Connor Gelabert</title>
 
-  <style>
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:#0f172a;
-      color:#e5e7eb;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
 
-    .nav{
-      position:fixed;
-      top:0; left:0; right:0;
-      background:rgba(2,6,23,0.85);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      z-index:1000;
-    }
-    .nav-inner{
-      max-width:900px;
-      margin:0 auto;
-      padding:14px 16px;
-      display:flex;
-      justify-content:center;
-    }
-    .nav-links{
-      display:flex;
-      gap:12px;
-      flex-wrap:nowrap;
-    }
-    .nav-links a{
-      color:#cbd5f5;
-      text-decoration:none;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.12);
-      white-space:nowrap;
-    }
-    .nav-links a.active{
-      border-color:rgba(96,165,250,0.9);
-      background:rgba(30,41,59,0.7);
-      color:#e5e7eb;
-    }
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(2,6,23,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 1000;
+}
 
-    .container{
-      max-width:900px;
-      margin:120px auto 90px;
-      padding:0 24px;
-    }
-    h1{
-      font-size:3rem;
-      margin:26px 0 26px;
-      letter-spacing:-0.02em;
-    }
-    .city-title{
-      font-size:2.4rem;
-      margin:34px 0 16px;
-      letter-spacing:-0.02em;
-    }
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: center;
+}
 
-    .photo-strip{
-      display:flex;
-      gap:16px;
-      overflow-x:auto;
-      padding:18px;
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.03);
-      -webkit-overflow-scrolling:touch;
-      scroll-snap-type:x mandatory;
-    }
-    .photo-strip::-webkit-scrollbar{ height:10px; }
-    .photo-strip::-webkit-scrollbar-thumb{
-      background:rgba(255,255,255,0.12);
-      border-radius:20px;
-    }
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
 
-    .photo-card{
-      flex:0 0 auto;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(0,0,0,0.20);
-      scroll-snap-align:start;
+.nav-links a {
+  color: #cbd5f5;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
 
-      width:360px;
-      height:240px;
-    }
-    .photo-card.wide{ width:360px; height:240px; }
-    .photo-card.tall{ width:220px; height:300px; }
+.nav-links a.active {
+  border-color: rgba(96,165,250,0.9);
+  background: rgba(30,41,59,0.7);
+}
 
-    .photo-card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-      display:block;
-    }
+/* CONTENT */
+.container {
+  max-width: 900px;
+  margin: 120px auto 90px;
+  padding: 0 24px;
+}
 
-    @media(min-width:768px){
-      .photo-card{ width:520px; height:320px; }
-      .photo-card.wide{ width:520px; height:320px; }
-      .photo-card.tall{ width:260px; height:340px; }
-    }
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
 
-    @media(max-width:520px){
-      h1{ font-size:2.5rem; }
-      .city-title{ font-size:2.1rem; }
-    }
-  </style>
+.city-title {
+  font-size: 2.3rem;
+  margin: 40px 0 16px;
+}
+
+/* Horizontal scroll gallery */
+.photo-strip {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+}
+
+.photo-card {
+  flex: 0 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.photo-card.wide { width: 420px; height: 260px; }
+.photo-card.tall { width: 240px; height: 320px; }
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
 </head>
 
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="reading.html">Reading</a>
-        <a class="active" href="gallery.html">Gallery</a>
-      </div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="reading.html">Reading</a>
+      <a class="active" href="gallery.html">Gallery</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <main class="container">
-    <h1>Gallery</h1>
-    <div id="gallery-root"></div>
-  </main>
+<main class="container">
 
-  <script>
-    const GALLERY = [
-      {
-        title: "Dublin, Ireland",
-        folder: "dublin",
-        files: ["IMG_0099.jpeg","IMG_4272.jpeg","IMG_4299.jpeg","IMG_4310.jpeg","IMG_4315.jpeg","IMG_4336.jpeg","IMG_4391.jpeg"]
-      },
-      {
-        title: "Edinburgh, Scotland",
-        folder: "edinburgh",
-        files: ["IMG_4407.jpeg","IMG_4446.jpeg","IMG_4453.jpeg","IMG_4474.jpeg","IMG_4483.jpeg","IMG_4514.jpeg","IMG_4531.jpeg","IMG_4572.jpeg","IMG_4578.jpeg","IMG_8595.jpeg"]
-      },
-      {
-        title: "London, England",
-        folder: "london",
-        files: ["IMG_4591.jpeg","IMG_4594.jpeg","IMG_4608.jpeg","IMG_4615.jpeg","IMG_4622.jpeg","IMG_4624.jpeg","IMG_4625.jpeg","IMG_4631.jpeg","IMG_4640.jpeg","IMG_4646.jpeg"]
-      },
-      {
-        title: "Paris, France",
-        folder: "paris",
-        files: ["IMG_6443.jpeg","IMG_6450.jpeg","IMG_6466.jpeg","IMG_6487.jpeg","IMG_6490.jpeg","IMG_6503.jpeg","IMG_6518.jpeg","IMG_6571.jpeg"]
-      },
-      {
-        title: "Cologne, Germany",
-        folder: "cologne",
-        files: ["IMG_6612.jpeg","IMG_6605.jpeg","IMG_6610.jpeg","IMG_6601.jpeg","IMG_6595.jpeg","IMG_6592.jpeg","IMG_6617.jpeg"]
-      }
-    ];
+<h1>Gallery</h1>
 
-    const root = document.getElementById("gallery-root");
+<!-- Dublin -->
+<h2 class="city-title">Dublin, Ireland</h2>
+<div class="photo-strip">
+  <div class="photo-card wide"><img src="images/gallery/dublin/IMG_0099.jpeg"></div>
+  <div class="photo-card tall"><img src="images/gallery/dublin/IMG_4272.jpeg"></div>
+  <div class="photo-card wide"><img src="images/gallery/dublin/IMG_4299.jpeg"></div>
+</div>
 
-    function createCitySection(city){
-      const h2 = document.createElement("h2");
-      h2.className = "city-title";
-      h2.textContent = city.title;
+<!-- Edinburgh -->
+<h2 class="city-title">Edinburgh, Scotland</h2>
+<div class="photo-strip">
+  <div class="photo-card wide"><img src="images/gallery/edinburgh/IMG_4446.jpeg"></div>
+  <div class="photo-card tall"><img src="images/gallery/edinburgh/IMG_4453.jpeg"></div>
+</div>
 
-      const strip = document.createElement("div");
-      strip.className = "photo-strip";
+<!-- London -->
+<h2 class="city-title">London, England</h2>
+<div class="photo-strip">
+  <div class="photo-card wide"><img src="images/gallery/london/IMG_4591.jpeg"></div>
+  <div class="photo-card tall"><img src="images/gallery/london/IMG_4594.jpeg"></div>
+</div>
 
-      city.files.forEach((file) => {
-        const card = document.createElement("div");
-        card.className = "photo-card";
+<!-- Paris -->
+<h2 class="city-title">Paris, France</h2>
+<div class="photo-strip">
+  <div class="photo-card wide"><img src="images/gallery/paris/IMG_6443.jpeg"></div>
+  <div class="photo-card tall"><img src="images/gallery/paris/IMG_6450.jpeg"></div>
+</div>
 
-        const img = document.createElement("img");
-        img.loading = "lazy";
-        img.decoding = "async";
-        img.src = `images/gallery/${city.folder}/${file}`;
-        img.alt = `${city.title} ${file}`;
+<!-- Cologne -->
+<h2 class="city-title">Cologne, Germany</h2>
+<div class="photo-strip">
+  <div class="photo-card wide"><img src="images/gallery/cologne/IMG_6590.jpeg"></div>
+  <div class="photo-card tall"><img src="images/gallery/cologne/IMG_6595.jpeg"></div>
+  <div class="photo-card wide"><img src="images/gallery/cologne/IMG_6601.jpeg"></div>
+  <div class="photo-card tall"><img src="images/gallery/cologne/IMG_6605.jpeg"></div>
+  <div class="photo-card wide"><img src="images/gallery/cologne/IMG_6610.jpeg"></div>
+  <div class="photo-card tall"><img src="images/gallery/cologne/IMG_6612.jpeg"></div>
+  <div class="photo-card wide"><img src="images/gallery/cologne/IMG_6617.jpeg"></div>
+</div>
 
-        function setOrientation(){
-          const isLandscape = img.naturalWidth >= img.naturalHeight;
-          card.classList.add(isLandscape ? "wide" : "tall");
-        }
-
-        img.addEventListener("load", setOrientation);
-        if (img.complete) setOrientation();
-
-        card.appendChild(img);
-        strip.appendChild(card);
-      });
-
-      root.appendChild(h2);
-      root.appendChild(strip);
-    }
-
-    GALLERY.forEach(createCitySection);
-  </script>
+</main>
 </body>
 </html>
